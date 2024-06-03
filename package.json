@@ -1,0 +1,54 @@
+{
+	"bugs": "https://github.com/cedx/koa-eta/issues",
+	"description": "A Koa view renderer based on Eta template engine.",
+	"homepage": "https://docs.belin.io/koa-eta",
+	"license": "MIT",
+	"name": "@cedx/koa-eta",
+	"repository": "cedx/koa-eta",
+	"type": "module",
+	"version": "1.0.0",
+	"author": {
+		"email": "cedric@belin.io",
+		"name": "Cédric Belin",
+		"url": "https://belin.io"
+	},
+	"devDependencies": {
+		"@babel/eslint-parser": "^7.24.6",
+		"@babel/plugin-syntax-import-attributes": "^7.24.6",
+		"@types/gulp": "^4.0.17",
+		"@types/node": "^20.14.0",
+		"del": "^7.1.0",
+		"eslint": "^9.4.0",
+		"execa": "^9.1.0",
+		"gulp": "^5.0.0",
+		"typedoc": "^0.25.13",
+		"typescript": "^5.4.5"
+	},
+	"engines": {
+		"node": ">=22.0.0"
+	},
+	"exports": {
+		"types": "./lib/index.d.ts",
+		"default": "./src/index.js"
+	},
+	"files": [
+		"lib/",
+		"src/"
+	],
+	"keywords": [
+		"eta",
+		"koa",
+		"middleware",
+		"render",
+		"template",
+		"view"
+	],
+	"peerDependencies": {
+		"eta": ">=3.4.0",
+		"koa": ">=2.15.0"
+	},
+	"scripts": {
+		"prepack": "gulp",
+		"test": "node --test --test-reporter=spec"
+	}
+}
