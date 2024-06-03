@@ -6,7 +6,7 @@
 	"name": "@cedx/koa-eta",
 	"repository": "cedx/koa-eta",
 	"type": "module",
-	"version": "1.0.0",
+	"version": "0.1.0",
 	"author": {
 		"email": "cedric@belin.io",
 		"name": "Cédric Belin",
@@ -16,6 +16,7 @@
 		"@babel/eslint-parser": "^7.24.6",
 		"@babel/plugin-syntax-import-attributes": "^7.24.6",
 		"@types/gulp": "^4.0.17",
+		"@types/koa": "^2.15.0",
 		"@types/node": "^20.14.0",
 		"del": "^7.1.0",
 		"eslint": "^9.4.0",
@@ -45,7 +46,8 @@
 	],
 	"peerDependencies": {
 		"eta": ">=3.4.0",
-		"koa": ">=2.15.0"
+		"koa": ">=2.15.0",
+		"playwright": ">=1.44.0"
 	},
 	"scripts": {
 		"prepack": "gulp",
