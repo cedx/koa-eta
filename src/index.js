@@ -23,7 +23,7 @@ export default function eta(application, rendererOptions = {}) {
 
 		if (renderingOptions.writeResponse ?? true) {
 			this.body = html;
-			this.type = "text/html";
+			this.type = "html";
 		}
 
 		return html;
@@ -46,7 +46,7 @@ export default function eta(application, rendererOptions = {}) {
 
 		if (renderingOptions.writeResponse ?? true) {
 			this.body = pdf;
-			this.type = "application/pdf";
+			this.type = "pdf";
 		}
 
 		return pdf;
