@@ -1,12 +1,16 @@
-import {cp} from "node:fs/promises";
+import {cp, readFile, writeFile} from "node:fs/promises";
+import {EOL} from "node:os";
 import {deleteAsync} from "del";
 import {$} from "execa";
 import gulp from "gulp";
 import pkg from "./package.json" with {type: "json"};
 
 // Builds the project.
-export function build() {
-	return $`tsc --project src/tsconfig.json`;
+export async function build() {
+	await $`tsc --project src/tsconfig.json`;
+	await cp("src/koa.d.ts", "lib/koa.d.ts");
+	const types = await readFile("lib/index.d.ts", "utf8");
+	return writeFile("lib/index.d.ts", types.replace("//# sourceMappingURL", `import "./koa.js";${EOL}//# sourceMappingURL`));
 }
 
 // Deletes all generated files.
