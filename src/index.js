@@ -4,11 +4,11 @@ import {chromium} from "playwright";
 /**
  * Attaches a view renderer to the context of the specified application.
  * @param {import("koa")} application The application instance.
- * @param {Partial<RendererOptions>} options The view renderer options.
+ * @param {Partial<RendererOptions>} rendererOptions The view renderer options.
  * @returns {Eta} The newly created view renderer.
  */
-export default function eta(application, options = {}) {
-	const renderer = new Eta(options);
+export default function eta(application, rendererOptions = {}) {
+	const renderer = new Eta(rendererOptions);
 
 	/**
 	 * Renders the specified view.
@@ -19,7 +19,7 @@ export default function eta(application, options = {}) {
 	 * @this {import("koa").Context} The request context.
 	 */
 	application.context.render = async function render(view, data = {}, renderingOptions = {}) {
-		const html = await renderer.renderAsync(view, data);
+		const html = await renderer.renderAsync(view, {...this.state, ...data});
 
 		if (renderingOptions.writeResponse ?? true) {
 			this.body = html;
@@ -38,9 +38,9 @@ export default function eta(application, options = {}) {
 	 * @this {import("koa").Context} The request context.
 	 */
 	application.context.renderPdf = async function renderPdf(view, data = {}, renderingOptions = {}) {
-		const browser = await chromium.launch(options.browser);
+		const browser = await chromium.launch(rendererOptions.browser);
 		const page = await browser.newPage();
-		await page.setContent(await renderer.renderAsync(view, data), {waitUntil: "load"});
+		await page.setContent(await renderer.renderAsync(view, {...this.state, ...data}), {waitUntil: "load"});
 		const pdf = await page.pdf(renderingOptions);
 		await browser.close();
 
