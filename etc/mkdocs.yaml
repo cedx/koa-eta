@@ -1,7 +1,7 @@
 site_name: Eta for Koa
 site_url: https://docs.belin.io/koa-eta
 site_author: Cédric Belin - cedric@belin.io
-site_description: A Koa view renderer based on Eta template engine.
+site_description: A Koa view renderer based on the Eta template engine.
 
 docs_dir: ../docs
 site_dir: ../www

@@ -1,6 +1,6 @@
 {
 	"bugs": "https://github.com/cedx/koa-eta/issues",
-	"description": "A Koa view renderer based on Eta template engine.",
+	"description": "A Koa view renderer based on the Eta template engine.",
 	"homepage": "https://docs.belin.io/koa-eta",
 	"license": "MIT",
 	"name": "@cedx/koa-eta",
