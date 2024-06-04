@@ -19,7 +19,8 @@ export default function eta(application, rendererOptions = {}) {
 	 * @this {import("koa").Context} The request context.
 	 */
 	application.context.render = async function render(view, data = {}, renderingOptions = {}) {
-		const html = await renderer.renderAsync(view, {...this.state, ...data});
+		const context = {...this.state, ...data};
+		const html = renderingOptions.async ? await renderer.renderAsync(view, context) : renderer.render(view, context);
 
 		if (renderingOptions.writeResponse ?? true) {
 			this.body = html;
@@ -40,7 +41,9 @@ export default function eta(application, rendererOptions = {}) {
 	application.context.renderPdf = async function renderPdf(view, data = {}, renderingOptions = {}) {
 		const browser = await chromium.launch(rendererOptions.browser);
 		const page = await browser.newPage();
-		await page.setContent(await renderer.renderAsync(view, {...this.state, ...data}), {waitUntil: "load"});
+
+		const context = {...this.state, ...data};
+		await page.setContent(renderingOptions.async ? await renderer.renderAsync(view, context) : renderer.render(view, context), {waitUntil: "load"});
 		const pdf = await page.pdf(renderingOptions);
 		await browser.close();
 
