@@ -13,7 +13,7 @@ export default function eta(application, rendererOptions = {}) {
 	/**
 	 * Renders the specified view.
 	 * @param {string} view The view name.
-	 * @param {Record<string, unknown>} data The data that should be made available in the view.
+	 * @param {object} data The data that should be made available in the view.
 	 * @param {Partial<RenderingOptions>} renderingOptions The rendering options.
 	 * @returns {Promise<string>} The rendering result.
 	 * @this {import("koa").Context} The request context.
@@ -32,7 +32,7 @@ export default function eta(application, rendererOptions = {}) {
 	/**
 	 * Renders the specified view as a PDF document.
 	 * @param {string} view The view name.
-	 * @param {Record<string, unknown>} data The data that should be made available in the view.
+	 * @param {object} data The data that should be made available in the view.
 	 * @param {Partial<PdfOptions & RenderingOptions>} renderingOptions The rendering options.
 	 * @returns {Promise<import("node:buffer").Buffer>} The rendering result.
 	 * @this {import("koa").Context} The request context.
@@ -101,6 +101,7 @@ export default function eta(application, rendererOptions = {}) {
 /**
  * Defines the rendering options.
  * @typedef {object} RenderingOptions
+ * @property {boolean} async Value indicating whether the template is asynchronous.
  * @property {boolean} writeResponse Value indicating whether to write the rendering result to the response.
  */
 
