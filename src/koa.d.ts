@@ -2,7 +2,7 @@ import {Buffer} from "node:buffer";
 import {PdfOptions, RenderingOptions} from "./index.js";
 
 declare module "koa" {
-	interface ExtendableContext {
+	interface BaseContext {
 
 		/**
 		 * Renders the specified view.
