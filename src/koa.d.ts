@@ -2,6 +2,10 @@ import {Buffer} from "node:buffer";
 import {PdfOptions, RenderingOptions} from "./index.js";
 
 declare module "koa" {
+
+	/**
+	 * The request context.
+	 */
 	interface ExtendableContext {
 
 		/**
