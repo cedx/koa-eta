@@ -8,9 +8,9 @@ import pkg from "./package.json" with {type: "json"};
 // Builds the project.
 export async function build() {
 	await $`tsc --project src/tsconfig.json`;
-	await cp("src/koa.d.ts", "lib/koa.d.ts");
+	await cp("src/types.d.ts", "lib/types.d.ts");
 	const types = await readFile("lib/index.d.ts", "utf8");
-	return writeFile("lib/index.d.ts", types.replace("//# sourceMappingURL", `import "./koa.js";${EOL}//# sourceMappingURL`));
+	return writeFile("lib/index.d.ts", types.replace("//# sourceMappingURL", `import "./types.js";${EOL}//# sourceMappingURL`));
 }
 
 // Deletes all generated files.
