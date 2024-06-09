@@ -1,6 +1,7 @@
 import {equal, ok} from "node:assert/strict";
 import {after, before, describe, it} from "node:test";
 import app from "../example/server.js";
+import pkg from "../package.json" with {type: "json"};
 
 /**
  * Tests the features of the {@link eta} function.
@@ -23,6 +24,7 @@ describe("eta()", () => {
 			const body = await response.text();
 			ok(body.startsWith("<!DOCTYPE html>"));
 			ok(body.includes("<title>Eta for Koa</title>"));
+			ok(body.includes(`<b>${pkg.version}</b>`));
 			ok(body.trimEnd().endsWith("</html>"))
 		});
 	});

@@ -1,3 +1,4 @@
+import console from "node:console";
 import {join} from "node:path";
 import eta from "@cedx/koa-eta";
 import Koa from "koa";
@@ -13,9 +14,9 @@ eta(app, {
 	views: join(import.meta.dirname, "../res")
 });
 
-// Configure the request state.
+// Configure the data shared by all views.
 app.use((ctx, next) => {
-	Object.assign(ctx.state, {address: ctx.ip, version: pkg.version});
+	Object.assign(ctx.state, {version: pkg.version});
 	return next();
 });
 
