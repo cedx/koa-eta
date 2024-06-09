@@ -1,0 +1,5 @@
+<ul>
+  <% for (const item of it.items) { %>
+    <li><%= item.name %></li>
+  <% } %>
+</ul>

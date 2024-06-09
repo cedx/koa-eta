@@ -1,0 +1,5 @@
+<% layout("_layout") %>
+
+<main>
+	<%~ include("list", {items: it.items}) %>
+</main>

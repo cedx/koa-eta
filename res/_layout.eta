@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <title>Eta for Koa</title>
+  </head>
+  <body>
+    <%~ it.body %>
+  </body>
+</html>
