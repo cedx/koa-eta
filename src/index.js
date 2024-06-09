@@ -18,7 +18,7 @@ export default function eta(application, rendererOptions = {}) {
 	 * @returns {Promise<string>} The rendering result.
 	 * @this {import("koa").Context} The request context.
 	 */
-	application.context.render = async function render(view, data = {}, renderingOptions = {}) {
+	async function render(view, data = {}, renderingOptions = {}) {
 		const context = {...this.state, ...data};
 		const html = renderingOptions.async ? await renderer.renderAsync(view, context) : renderer.render(view, context);
 
@@ -28,7 +28,7 @@ export default function eta(application, rendererOptions = {}) {
 		}
 
 		return html;
-	};
+	}
 
 	/**
 	 * Renders the specified view as a PDF document.
@@ -38,12 +38,13 @@ export default function eta(application, rendererOptions = {}) {
 	 * @returns {Promise<import("node:buffer").Buffer>} The rendering result.
 	 * @this {import("koa").Context} The request context.
 	 */
-	application.context.renderPdf = async function renderPdf(view, data = {}, renderingOptions = {}) {
+	async function renderPdf(view, data = {}, renderingOptions = {}) {
+		const context = {...this.state, ...data};
+		const html = renderingOptions.async ? await renderer.renderAsync(view, context) : renderer.render(view, context);
+
 		const browser = await chromium.launch(rendererOptions.browser);
 		const page = await browser.newPage();
-
-		const context = {...this.state, ...data};
-		await page.setContent(renderingOptions.async ? await renderer.renderAsync(view, context) : renderer.render(view, context), {waitUntil: "load"});
+		await page.setContent(html, {waitUntil: "load"});
 		const pdf = await page.pdf(renderingOptions);
 		await browser.close();
 
@@ -53,7 +54,12 @@ export default function eta(application, rendererOptions = {}) {
 		}
 
 		return pdf;
-	};
+	}
+
+	Object.defineProperties(application.context, {
+		render: {value: render},
+		renderPdf: {value: renderPdf}
+	});
 
 	return renderer;
 }
