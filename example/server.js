@@ -3,7 +3,7 @@ import eta from "@cedx/koa-eta";
 import Koa from "koa";
 import pkg from "../package.json" with {type: "json"};
 
-// Initialize the application.
+// Initialize the Koa application.
 const app = new Koa;
 
 // Configure the view renderer.
