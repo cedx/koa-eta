@@ -1,6 +1,6 @@
 import {equal, ok} from "node:assert/strict";
 import {after, before, describe, it} from "node:test";
-import app from "../example/app.js";
+import app from "../example/server.js";
 
 /**
  * Tests the features of the {@link eta} function.

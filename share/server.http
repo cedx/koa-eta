@@ -1,0 +1,9 @@
+@url = http://127.0.0.1:3000
+
+### Renders the view as HTML.
+GET {{url}}/
+Accept: text/html
+
+### Renders the view as PDF.
+GET {{url}}/
+Accept: application/pdf
