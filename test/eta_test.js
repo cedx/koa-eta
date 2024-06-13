@@ -4,7 +4,7 @@ import app from "../example/server.js";
 import pkg from "../package.json" with {type: "json"};
 
 /**
- * Tests the features of the {@link eta} function.
+ * Tests the features of the {@link render} and {@link renderPdf} functions.
  */
 describe("eta()", () => {
 	const url = new URL("http://127.0.0.1:3000/");
