@@ -57,5 +57,5 @@ eta(app, {views: directory});
     The `views` option **must** be set to use the template engine.  
     Otherwise, an `EtaFileResolution` error will be raised.
 
-Please refer to the [official Eta documentation](https://eta.js.org) for details
+Please refer to the [Eta documentation](https://eta.js.org) for details
 of [all configuration options](https://eta.js.org/docs/api/configuration).
