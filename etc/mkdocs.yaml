@@ -35,8 +35,8 @@ nav:
   - Home: index.md
   - Installation: installation.md
   - Usage:
-      - ctx.render(): usage/html.md
-      - ctx.renderPdf(): usage/pdf.md
+      - ctx.render: usage/html.md
+      - ctx.renderPdf: usage/pdf.md
   - See also:
       - API reference: api/
       - Changelog: changelog.md
