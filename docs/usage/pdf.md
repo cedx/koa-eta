@@ -1,5 +1,6 @@
 # The `ctx.renderPdf()` method
-This method lets you render an [Eta](https://eta.js.org) template as a PDF document and send it as HTTP response.
+This method lets you render an [Eta](https://eta.js.org) template as a **PDF document** and send it as HTTP response.
+Its signature and use is basically the same as [the `ctx.render()` method](html.md).
 
 ```js
 import {join} from "node:path";
@@ -15,15 +16,8 @@ app.use(async ctx => {
 });
 ```
 
-This method accepts up to three arguments, the first of which is mandatory.
-Its signature is as follows:
+!!! info
+    The content type of the HTTP response will automatically be set to `application/pdf`.
 
-```js
-/**
- * @param {string} view - The view name.
- * @param {object} data - The data that should be made available in the view.
- * @param {Partial<PdfOptions & RenderingOptions>} renderingOptions - The rendering options.
- * @returns {Promise<import("node:buffer").Buffer>} The rendering result.
- */
-async renderPdf(view, data = {}, renderingOptions = {})
-```
+## Rendering options
+The `renderPdf()` method supports the same options as [the `ctx.render()` method](html.md) (i.e. `async` and `writeResponse`).
