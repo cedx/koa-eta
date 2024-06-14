@@ -61,3 +61,21 @@ supported by the `browser` option.
 
 ## Rendering options
 The `ctx.renderPdf()` method supports the same options as [the `ctx.render()` method](html.md) (i.e. `async` and `writeResponse`).
+
+Other options are available to specifically customize the PDF rendering.
+These options are specified in the `ctx.renderPdf()` call and passed directly to the
+[`Page.pdf()`](https://playwright.dev/docs/api/class-page#page-pdf) method provided by [Playwright](https://playwright.dev).
+
+```js
+app.use(async ctx => {
+  const viewData = {message: "Hello World!"};
+  return ctx.renderPdf("view", viewData, {
+    format: "A4",
+    outline: true
+  });
+});
+```
+
+Please refer to the [Playwright documentation](https://playwright.dev) for details
+of [all configuration options](https://playwright.dev/docs/api/class-page#page-pdf)
+supported by the PDF rendering.
