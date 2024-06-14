@@ -29,7 +29,7 @@ that you can use to render [Eta](https://eta.js.org) view templates.
 ```js
 // Render the "view.eta" template.
 app.use(async ctx => {
-  ctx.body = ctx.render("view");
+  return ctx.render("view");
 });
 ```
 
