@@ -35,8 +35,8 @@ app.use(async ctx => {
 
 For more information, visit the pages dedicated to each of them:
 
-- [The `render()` method.](usage/html.md)
-- [The `renderPdf()` method.](usage/pdf.md)
+- [The `ctx.render()` method.](usage/html.md)
+- [The `ctx.renderPdf()` method.](usage/pdf.md)
 
 ### Options
 The `eta()` function accepts an option object as a second argument.
