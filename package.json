@@ -12,6 +12,10 @@
 		"name": "Cédric Belin",
 		"url": "https://belin.io"
 	},
+	"dependencies": {
+		"eta": "^3.4.0",
+		"playwright": "^1.44.1"
+	},
 	"devDependencies": {
 		"@babel/eslint-parser": "^7.24.7",
 		"@babel/plugin-syntax-import-attributes": "^7.24.7",
@@ -46,9 +50,7 @@
 		"view"
 	],
 	"peerDependencies": {
-		"eta": ">=3.4.0",
-		"koa": ">=2.15.0",
-		"playwright": ">=1.44.0"
+		"koa": ">=2.15.0"
 	},
 	"scripts": {
 		"prepack": "gulp",
