@@ -78,4 +78,5 @@ app.use(async ctx => {
 
 Please refer to the [Playwright documentation](https://playwright.dev) for details
 of [all configuration options](https://playwright.dev/docs/api/class-page#page-pdf)
-supported by the PDF rendering.
+supported by the PDF rendering.  
+You can also take a look at the [API reference](../api/interfaces/PdfOptions.html).

@@ -58,4 +58,5 @@ eta(app, {views: directory});
     Otherwise, an `EtaFileResolution` error will be raised.
 
 Please refer to the [Eta documentation](https://eta.js.org) for details
-of [all configuration options](https://eta.js.org/docs/api/configuration).
+of [all configuration options](https://eta.js.org/docs/api/configuration).  
+You can also take a look at the [API reference](api/interfaces/RendererOptions.html).
