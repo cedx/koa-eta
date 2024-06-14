@@ -5,7 +5,7 @@
 - Added an example of a [Koa](https://koajs.com) server.
 
 ## Version [0.2.0](https://github.com/cedx/koa-eta/compare/v0.1.2...v0.2.0)
-- Add the `async` rendering option.
+- Added the `async` rendering option.
 - Merge the request context's `state` with template data.
 
 ## Version [0.1.2](https://github.com/cedx/koa-eta/compare/v0.1.1...v0.1.2)
