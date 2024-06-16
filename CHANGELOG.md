@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [1.0.1](https://github.com/cedx/koa-eta/compare/v1.0.0...v1.0.1)
+- Migrated the documentation to the [GitHub wiki](https://github.com/cedx/koa-eta/wiki).
+
 ## Version [1.0.0](https://github.com/cedx/koa-eta/compare/v0.2.0...v1.0.0)
 - First stable release.
 - Added an example of a [Koa](https://koajs.com) server.
