@@ -4,12 +4,11 @@
 A [Koa](https://koajs.com) view renderer based on the [Eta](https://eta.js.org) template engine.
 
 ## Documentation
-- [User guide](https://docs.belin.io/koa-eta)
-- [API reference](https://docs.belin.io/koa-eta/api)
+- [User guide](https://github.com/cedx/koa-eta/wiki)
+- [Examples](https://github.com/cedx/koa-eta/tree/main/example)
 
 ## Development
 - [Git repository](https://github.com/cedx/koa-eta)
-- [npm package](https://www.npmjs.com/package/@cedx/koa-eta)
 - [Submit an issue](https://github.com/cedx/koa-eta/issues)
 
 ## License

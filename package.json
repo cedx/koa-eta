@@ -1,12 +1,12 @@
 {
 	"bugs": "https://github.com/cedx/koa-eta/issues",
 	"description": "A Koa view renderer based on the Eta template engine.",
-	"homepage": "https://docs.belin.io/koa-eta",
+	"homepage": "https://github.com/cedx/koa-eta",
 	"license": "MIT",
 	"name": "@cedx/koa-eta",
 	"repository": "cedx/koa-eta",
 	"type": "module",
-	"version": "1.0.0",
+	"version": "1.0.1",
 	"author": {
 		"email": "cedric@belin.io",
 		"name": "Cédric Belin",
@@ -27,7 +27,6 @@
 		"execa": "^9.2.0",
 		"globals": "^15.4.0",
 		"gulp": "^5.0.0",
-		"typedoc": "^0.25.13",
 		"typescript": "^5.4.5"
 	},
 	"engines": {
