@@ -1,6 +1,9 @@
 import {Buffer} from "node:buffer";
 import {PdfOptions, RenderingOptions} from "./index.js";
 
+/**
+ * Declaration merging.
+ */
 declare module "koa" {
 
 	/**
