@@ -1,5 +1,5 @@
-import {Buffer} from "node:buffer";
-import {PdfOptions, RenderingOptions} from "./index.js";
+import type {Buffer} from "node:buffer";
+import type {PdfOptions, RenderingOptions} from "./index.js";
 
 /**
  * Declaration merging.
@@ -18,7 +18,7 @@ declare module "koa" {
 		 * @param options The rendering options.
 		 * @returns The rendering result.
 		 */
-		render(view: string, data?: object, options?: Partial<RenderingOptions>): Promise<string>;
+		render: (view: string, data?: object, options?: Partial<RenderingOptions>) => Promise<string>;
 
 		/**
 		 * Renders the specified view as a PDF document.
@@ -27,6 +27,6 @@ declare module "koa" {
 		 * @param options The rendering options.
 		 * @returns The rendering result.
 		 */
-		renderPdf(view: string, data?: object, options?: Partial<PdfOptions & RenderingOptions>): Promise<Buffer>;
+		renderPdf: (view: string, data?: object, options?: Partial<PdfOptions & RenderingOptions>) => Promise<Buffer>;
 	}
 }

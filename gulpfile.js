@@ -2,9 +2,12 @@ import {cp, readFile, writeFile} from "node:fs/promises";
 import {EOL} from "node:os";
 import {env} from "node:process";
 import {deleteAsync} from "del";
-import {$} from "execa";
+import {execa} from "execa";
 import gulp from "gulp";
 import pkg from "./package.json" with {type: "json"};
+
+// Runs a command.
+const $ = execa({preferLocal: true, stdio: "inherit"});
 
 // Builds the project.
 export async function build() {
