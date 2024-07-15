@@ -11,7 +11,7 @@ const $ = execa({preferLocal: true, stdio: "inherit"});
 
 // Builds the project.
 export async function build() {
-	await $`tsc --project src/tsconfig.json`;
+	await $`tsc --build src/tsconfig.json`;
 	await cp("src/types.d.ts", "lib/types.d.ts");
 	const types = await readFile("lib/index.d.ts", "utf8");
 	return writeFile("lib/index.d.ts", types.replace("//# sourceMappingURL", `import "./types.js";${EOL}//# sourceMappingURL`));
@@ -25,7 +25,7 @@ export function clean() {
 // Performs the static analysis of source code.
 export async function lint() {
 	await build();
-	await $`tsc --project tsconfig.json`;
+	await $`tsc --build tsconfig.json`;
 	return $`eslint --config=etc/eslint.js gulpfile.js example src test`;
 }
 
