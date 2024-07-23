@@ -1,6 +1,6 @@
-import type {Buffer} from "node:buffer";
 import {Eta} from "eta";
-import type {default as Koa, Context} from "koa";
+import type {Context, default as Koa} from "koa";
+import type {Buffer} from "node:buffer";
 import {chromium} from "playwright";
 import type {LaunchOptions} from "playwright-core";
 

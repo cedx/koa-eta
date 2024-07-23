@@ -1,7 +1,7 @@
-import console from "node:console";
-import {join} from "node:path";
 import eta from "@cedx/koa-eta";
 import Koa from "koa";
+import console from "node:console";
+import {join} from "node:path";
 import pkg from "../package.json" with {type: "json"};
 
 // Initialize the Koa application.
