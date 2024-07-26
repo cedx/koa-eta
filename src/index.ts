@@ -214,11 +214,11 @@ export interface RendererOptions {
 	/**
 	 * The renderer plugins.
 	 */
-	plugins: Partial<{
+	plugins: Array<Partial<{
 		processAST: Function, // eslint-disable-line @typescript-eslint/no-unsafe-function-type
 		processFnString: Function, // eslint-disable-line @typescript-eslint/no-unsafe-function-type
 		processTemplate: Function // eslint-disable-line @typescript-eslint/no-unsafe-function-type
-	}>[];
+	}>>;
 
 	/**
 	 * Value indicating whether to remove all safe-to-remove whitespace.
