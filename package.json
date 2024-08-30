@@ -17,28 +17,20 @@
 		"playwright": "^1.46.1"
 	},
 	"devDependencies": {
-		"@types/eslint__js": "^8.42.3",
-		"@types/gulp": "^4.0.17",
 		"@types/koa": "^2.15.0",
 		"@types/node": "^22.5.1",
-		"del": "^7.1.0",
-		"execa": "^9.3.1",
-		"globals": "^15.9.0",
-		"gulp": "^5.0.0",
-		"typescript": "^5.5.4",
-		"typescript-eslint": "^8.3.0"
+		"esbuild": "^0.23.1"
 	},
 	"engines": {
 		"node": ">=22.0.0"
 	},
 	"exports": {
 		"types": "./lib/index.d.ts",
-		"default": "./lib/index.js"
+		"import": "./lib/index.mjs",
+		"default": "./lib/index.cjs"
 	},
 	"files": [
-		"lib/",
-		"src/",
-		"tsconfig.json"
+		"lib/"
 	],
 	"keywords": [
 		"eta",
@@ -52,8 +44,7 @@
 		"koa": ">=2.15.0"
 	},
 	"scripts": {
-		"prepack": "gulp",
 		"start": "node example/server.js",
-		"test": "gulp build && node --test --test-reporter=spec"
+		"test": "haxe test.hxml"
 	}
 }
