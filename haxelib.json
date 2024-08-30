@@ -1,0 +1,11 @@
+{
+	"classPath": "src/",
+	"contributors": ["cedx"],
+	"description": "A Koa view renderer based on the Eta template engine.",
+	"license": "MIT",
+	"name": "koa_eta",
+	"releasenote": "Ported the source code to Haxe.",
+	"tags": ["eta", "koa", "middleware", "render", "template", "view"],
+	"url": "https://github.com/cedx/koa-eta",
+	"version": "2.0.0"
+}

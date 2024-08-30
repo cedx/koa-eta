@@ -11,7 +11,7 @@ const app = new Koa;
 eta(app, {
 	cache: app.env == "production",
 	debug: app.env != "production",
-	views: join(import.meta.dirname, "../res")
+	views: join(import.meta.dirname, "../share/res")
 });
 
 // Configure the data shared by all views.
