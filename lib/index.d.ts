@@ -4,14 +4,6 @@ import type {Buffer} from "node:buffer";
 import type {LaunchOptions} from "playwright-core";
 
 /**
- * Attaches a view renderer to the context of the specified application.
- * @param application The application instance.
- * @param rendererOptions The view renderer options.
- * @returns The newly created view renderer.
- */
-export default function eta(application: Koa, rendererOptions?: Partial<RendererOptions>): Eta;
-
-/**
  * Defines the PDF rendering options.
  */
 export interface PdfOptions {
@@ -239,7 +231,7 @@ declare module "koa" {
 		 * @param options The rendering options.
 		 * @returns The rendering result.
 		 */
-		render: (view: string, data?: object, options?: Partial<RenderingOptions>) => Promise<string>;
+		render(view: string, data?: object, options?: Partial<RenderingOptions>): Promise<string>;
 
 		/**
 		 * Renders the specified view as a PDF document.
@@ -248,6 +240,14 @@ declare module "koa" {
 		 * @param options The rendering options.
 		 * @returns The rendering result.
 		 */
-		renderPdf: (view: string, data?: object, options?: Partial<PdfOptions & RenderingOptions>) => Promise<Buffer>;
+		renderPdf(view: string, data?: object, options?: Partial<PdfOptions & RenderingOptions>): Promise<Buffer>;
 	}
 }
+
+/**
+ * Attaches a view renderer to the context of the specified application.
+ * @param application The application instance.
+ * @param rendererOptions The view renderer options.
+ * @returns The newly created view renderer.
+ */
+export default function eta(application: Koa, rendererOptions?: Partial<RendererOptions>): Eta;
