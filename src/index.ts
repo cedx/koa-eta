@@ -13,25 +13,6 @@ export default function eta(application: Koa, rendererOptions: Partial<RendererO
 	const renderer = new Eta(rendererOptions);
 
 	/**
-	 * Renders the specified view.
-	 * @param view The view name.
-	 * @param data The data that should be made available in the view.
-	 * @param renderingOptions The rendering options.
-	 * @returns The rendering result.
-	 */
-	async function render(this: Context, view: string, data: object = {}, renderingOptions: Partial<RenderingOptions> = {}): Promise<string> {
-		const context = {...this.state, ...data};
-		const html = renderingOptions.async ? await renderer.renderAsync(view, context) : renderer.render(view, context);
-
-		if (renderingOptions.writeResponse ?? true) {
-			this.body = html;
-			this.type = "html";
-		}
-
-		return html;
-	}
-
-	/**
 	 * Renders the specified view as a PDF document.
 	 * @param view The view name.
 	 * @param data The data that should be made available in the view.
@@ -55,11 +36,6 @@ export default function eta(application: Koa, rendererOptions: Partial<RendererO
 
 		return pdf;
 	}
-
-	Object.defineProperties(application.context, {
-		render: {value: render},
-		renderPdf: {value: renderPdf}
-	});
 
 	return renderer;
 }

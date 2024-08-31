@@ -9,10 +9,29 @@ import js.node.net.Server.ServerListenOptionsTcp;
 extern class Application {
 
 	/** The prototype from which the request context is created. **/
-	final context: Context;
+	var context: Context;
+
+	/** The application application. **/
+	var env: String;
+
+	/** Value indicating whether to trust the proxy header fields. **/
+	var proxy: Bool;
+
+	/** Creates a new application. **/
+	function new(?options: ApplicationOptions);
 
 	/** Creates and returns an HTTP server, passing the given arguments to `Server.listen()`. **/
 	function listen(options: ListenOptions): Server;
+}
+
+/** Defines the options of an `Application` instance. **/
+typedef ApplicationOptions = {
+
+	/** The application application. **/
+	var ?env: String;
+
+	/** Value indicating whether to trust the proxy header fields. **/
+	var ?proxy: Bool;
 }
 
 /** Defines the options of the `Application.listen()` method. **/
