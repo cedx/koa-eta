@@ -1,4 +1,4 @@
-const eta = require("@cedx/koa-eta");
+const {eta} = require("@cedx/koa-eta");
 const Koa = require("koa");
 const console = require("node:console");
 const {join} = require("node:path");
