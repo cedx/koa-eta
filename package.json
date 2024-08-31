@@ -45,6 +45,6 @@
 	},
 	"scripts": {
 		"start": "node example/server.mjs",
-		"test": "haxe test.hxml"
+		"test": "lix Test"
 	}
 }
