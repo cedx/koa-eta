@@ -20,17 +20,21 @@ function eta(application: Dynamic, ?rendererOptions: RendererOptions): Eta {
 
 	/** Renders the specified `view`. **/
 	function render(view: String, ?data: {}, ?renderingOptions: RenderingOptions): Promise<String> {
-		final context = Object.assign({}, Lib.nativeThis.state, data ?? {});
+		final self = Lib.nativeThis;
+		final context = Object.assign({}, self.state, data ?? {});
+
 		final promise = (renderingOptions?.async ?? false) ? Promise.resolve(renderer.render(view, context)) : renderer.renderAsync(view, context);
 		return promise.then(html -> {
-			if (renderingOptions?.writeResponse ?? true) { Lib.nativeThis.body = html; Lib.nativeThis.type = "html"; }
+			if (renderingOptions?.writeResponse ?? true) { self.body = html; self.type = "html"; }
 			html;
 		});
 	}
 
 	/** Renders the specified `view` as a PDF document. **/
 	function renderPdf(view: String, ?data: {}, ?renderingOptions: PdfOptions & RenderingOptions): Promise<Buffer> {
-		final context = Object.assign({}, Lib.nativeThis.state, data ?? {});
+		final self = Lib.nativeThis;
+		final context = Object.assign({}, self.state, data ?? {});
+
 		final promise = (renderingOptions?.async ?? false) ? Promise.resolve(renderer.render(view, context)) : renderer.renderAsync(view, context);
 		promise
 			.then(html -> {
@@ -42,7 +46,7 @@ function eta(application: Dynamic, ?rendererOptions: RendererOptions): Eta {
 
 		final promise = Promise.resolve(Buffer.from((renderingOptions?.async ?? false) ? "TODO" : "TODO"));
 		return promise.then(pdf -> {
-			if (renderingOptions?.writeResponse ?? true) { Lib.nativeThis.body = pdf; Lib.nativeThis.type = "pdf"; }
+			if (renderingOptions?.writeResponse ?? true) { self.body = pdf; self.type = "pdf"; }
 			pdf;
 		});
 	}
