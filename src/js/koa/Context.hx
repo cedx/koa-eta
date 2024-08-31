@@ -1,14 +1,14 @@
 package js.koa;
 
-/** TODO **/
+/** Encapsulates the Node.js `request` and `response` objects into a single object. **/
 extern class Context {
 
-	/** TODO **/
+	/** The response body. **/
 	var body: Any;
 
-	/** TODO **/
+	/** The namespace for passing information through middleware and to the views. **/
 	var state: {};
 
-	/** TODO **/
+	/** The response media type. **/
 	var type: String;
 }
