@@ -122,7 +122,7 @@ export interface RenderingOptions {
  * @param rendererOptions The view renderer options.
  * @returns The newly created view renderer.
  */
-export default function eta(application: Koa, rendererOptions?: Partial<RendererOptions>): Eta;
+export function eta(application: Koa, rendererOptions?: Partial<RendererOptions>): Eta;
 
 /**
  * Declaration merging.
