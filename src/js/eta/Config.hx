@@ -3,7 +3,7 @@ package js.eta;
 import haxe.Constraints.Function;
 import haxe.extern.EitherType;
 
-/** Defines the template engine configuration. **/
+/** The template engine configuration. **/
 typedef Config = {
 
 	/** Value indicating whether to XML-escape interpolations. **/
@@ -63,7 +63,7 @@ typedef Config = {
 	var ?varName: String;
 
 	/** The path to the directory containing the templates. **/
-	var views: String;
+	var ?views: String;
 }
 
 /** Defines the automatic whitespace trimming. **/
