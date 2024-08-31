@@ -1,5 +1,6 @@
 --class-path test
 --js var/tests.js
+--library tink_http
 --library tink_unittest
 --main RunTests
 share/build.hxml
