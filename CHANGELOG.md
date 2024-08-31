@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [3.0.0](https://github.com/cedx/koa-eta/compare/v1.1.0...v2.0.0)
+- Ported the source code to [Haxe](https://haxe.org).
+
 ## Version [1.1.0](https://github.com/cedx/koa-eta/compare/v1.0.1...v1.1.0)
 - Ported the source code to [TypeScript](https://www.typescriptlang.org).
 
