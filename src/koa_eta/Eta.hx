@@ -8,8 +8,8 @@ import js.koa.Context;
 import js.lib.Object;
 import js.lib.Promise;
 import js.node.Buffer;
-import js.playwright.Options.LaunchOptions;
-import js.playwright.Options.PdfOptions;
+import js.playwright.Browser.LaunchOptions;
+import js.playwright.Page.PdfOptions;
 import js.playwright.Playwright;
 
 /**
@@ -38,19 +38,13 @@ function eta(application: Application, ?rendererOptions: RendererOptions): Eta {
 		final viewData = Object.assign({}, context.state, data ?? {});
 
 		final promise = (renderingOptions?.async ?? false) ? Promise.resolve(renderer.render(view, viewData)) : renderer.renderAsync(view, viewData);
-		promise
-			.then(html -> {
-				final browser = Playwright.chromium;
-
-				"TODO";
-			});
-
-
-		final promise = Promise.resolve(Buffer.from((renderingOptions?.async ?? false) ? "TODO" : "TODO"));
-		return promise.then(pdf -> {
-			if (renderingOptions?.writeResponse ?? true) { context.body = pdf; context.type = "pdf"; }
-			pdf;
-		});
+		return promise.then(html -> Playwright.chromium.launch().then(browser -> browser.newPage()
+			.then(page -> page.setContent(html, {waitUntil: Load})
+			.then(_ -> page.pdf(renderingOptions)))
+			.then(pdf -> browser.close().then(_ -> {
+				if (renderingOptions?.writeResponse ?? true) { context.body = pdf; context.type = "pdf"; }
+				pdf;
+			}))));
 	}
 
 	Object.defineProperties(application.context, {
