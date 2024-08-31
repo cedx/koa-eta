@@ -39,12 +39,12 @@ function eta(application: Application, ?rendererOptions: RendererOptions): Eta {
 
 		final promise = (renderingOptions?.async ?? false) ? Promise.resolve(renderer.render(view, viewData)) : renderer.renderAsync(view, viewData);
 		return promise.then(html -> Playwright.chromium.launch().then(browser -> browser.newPage()
-			.then(page -> page.setContent(html, {waitUntil: Load})
-			.then(_ -> page.pdf(renderingOptions)))
+			.then(page -> page.setContent(html, {waitUntil: Load}).then(_ -> page.pdf(renderingOptions)))
 			.then(pdf -> browser.close().then(_ -> {
 				if (renderingOptions?.writeResponse ?? true) { context.body = pdf; context.type = "pdf"; }
 				pdf;
-			}))));
+			}))
+		));
 	}
 
 	Object.defineProperties(application.context, {
