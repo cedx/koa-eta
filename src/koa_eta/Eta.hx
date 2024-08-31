@@ -3,6 +3,8 @@ package koa_eta;
 import js.Lib;
 import js.eta.Config as EtaConfig;
 import js.eta.Eta;
+import js.koa.Application;
+import js.koa.Context;
 import js.lib.Object;
 import js.lib.Promise;
 import js.node.Buffer;
@@ -15,27 +17,27 @@ import js.playwright.Playwright;
 	Returns the newly created view renderer.
 **/
 @:expose("eta")
-function eta(application: Dynamic, ?rendererOptions: RendererOptions): Eta {
+function eta(application: Application, ?rendererOptions: RendererOptions): Eta {
 	final renderer = new Eta(rendererOptions);
 
 	/** Renders the specified `view`. **/
 	function render(view: String, ?data: {}, ?renderingOptions: RenderingOptions): Promise<String> {
-		final self = Lib.nativeThis;
-		final context = Object.assign({}, self.state, data ?? {});
+		final context: Context = Lib.nativeThis;
+		final viewData = Object.assign({}, context.state, data ?? {});
 
-		final promise = (renderingOptions?.async ?? false) ? Promise.resolve(renderer.render(view, context)) : renderer.renderAsync(view, context);
+		final promise = (renderingOptions?.async ?? false) ? Promise.resolve(renderer.render(view, viewData)) : renderer.renderAsync(view, viewData);
 		return promise.then(html -> {
-			if (renderingOptions?.writeResponse ?? true) { self.body = html; self.type = "html"; }
+			if (renderingOptions?.writeResponse ?? true) { context.body = html; context.type = "html"; }
 			html;
 		});
 	}
 
 	/** Renders the specified `view` as a PDF document. **/
 	function renderPdf(view: String, ?data: {}, ?renderingOptions: PdfOptions & RenderingOptions): Promise<Buffer> {
-		final self = Lib.nativeThis;
-		final context = Object.assign({}, self.state, data ?? {});
+		final context: Context = Lib.nativeThis;
+		final viewData = Object.assign({}, context.state, data ?? {});
 
-		final promise = (renderingOptions?.async ?? false) ? Promise.resolve(renderer.render(view, context)) : renderer.renderAsync(view, context);
+		final promise = (renderingOptions?.async ?? false) ? Promise.resolve(renderer.render(view, viewData)) : renderer.renderAsync(view, viewData);
 		promise
 			.then(html -> {
 				final browser = Playwright.chromium;
@@ -46,7 +48,7 @@ function eta(application: Dynamic, ?rendererOptions: RendererOptions): Eta {
 
 		final promise = Promise.resolve(Buffer.from((renderingOptions?.async ?? false) ? "TODO" : "TODO"));
 		return promise.then(pdf -> {
-			if (renderingOptions?.writeResponse ?? true) { self.body = pdf; self.type = "pdf"; }
+			if (renderingOptions?.writeResponse ?? true) { context.body = pdf; context.type = "pdf"; }
 			pdf;
 		});
 	}
