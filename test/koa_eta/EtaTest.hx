@@ -15,7 +15,7 @@ using StringTools;
 	final application: Application = Lib.require("../example/server.cjs");
 
 	/** The controller used to shut down the server. **/
-	final controller = new AbortController();
+	var controller: AbortController;
 
 	/** The server URL. **/
 	final url: Url = "http://127.0.0.1:3000/";
@@ -31,6 +31,7 @@ using StringTools;
 
 	/** Method invoked before each test. **/
 	@:before public function before() {
+		controller = new AbortController();
 		application.listen({host: url.host.name, port: url.host.port, signal: controller.signal});
 		return Noise;
 	}
