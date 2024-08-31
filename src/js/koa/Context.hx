@@ -4,5 +4,11 @@ package js.koa;
 extern class Context {
 
 	/** TODO **/
-	final state: {};
+	var body: Any;
+
+	/** TODO **/
+	var state: {};
+
+	/** TODO **/
+	var type: String;
 }
