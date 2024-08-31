@@ -117,6 +117,14 @@ export interface RenderingOptions {
 }
 
 /**
+ * Attaches a view renderer to the context of the specified application.
+ * @param application The application instance.
+ * @param rendererOptions The view renderer options.
+ * @returns The newly created view renderer.
+ */
+export default function eta(application: Koa, rendererOptions?: Partial<RendererOptions>): Eta;
+
+/**
  * Declaration merging.
  */
 declare module "koa" {
@@ -145,11 +153,3 @@ declare module "koa" {
 		renderPdf(view: string, data?: object, options?: Partial<PdfOptions & RenderingOptions>): Promise<Buffer>;
 	}
 }
-
-/**
- * Attaches a view renderer to the context of the specified application.
- * @param application The application instance.
- * @param rendererOptions The view renderer options.
- * @returns The newly created view renderer.
- */
-export default function eta(application: Koa, rendererOptions?: Partial<RendererOptions>): Eta;
