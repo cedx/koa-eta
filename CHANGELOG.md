@@ -1,6 +1,7 @@
 # Changelog
 
 ## Version [2.0.0](https://github.com/cedx/koa-eta/compare/v1.1.0...v2.0.0)
+- Breaking change: the `eta()` function now uses a named export instead of a default export.
 - Ported the source code to [Haxe](https://haxe.org).
 
 ## Version [1.1.0](https://github.com/cedx/koa-eta/compare/v1.0.1...v1.1.0)
