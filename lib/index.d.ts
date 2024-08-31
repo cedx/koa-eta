@@ -1,4 +1,4 @@
-import {Eta} from "eta";
+import {Eta, type EtaConfig} from "eta";
 import type {default as Koa} from "koa";
 import type {Buffer} from "node:buffer";
 import type {LaunchOptions} from "playwright-core";
@@ -92,105 +92,12 @@ export interface PdfOptions {
 /**
  * Defines the renderer options.
  */
-export interface RendererOptions {
-
-	/**
-	 * Value indicating whether to XML-escape interpolations.
-	 */
-	autoEscape: boolean;
-
-	/**
-	 * Value indicating whether to apply a filter function to every interpolation.
-	 */
-	autoFilter: boolean;
-
-	/**
-	 * Configures the automatic whitespace trimming.
-	 */
-	autoTrim: TrimOptions|[TrimOptions, TrimOptions];
+export type RendererOptions = EtaConfig & {
 
 	/**
 	 * The launch options for the browser used to render PDF documents.
 	 */
 	browser: LaunchOptions;
-
-	/**
-	 * Value indicating whether to cache the templates.
-	 */
-	cache: boolean;
-
-	/**
-	 * Value indicating whether to cache the resolved file paths.
-	 */
-	cacheFilepaths: boolean;
-
-	/**
-	 * Value indicating whether to pretty-format error messages.
-	 */
-	debug: boolean;
-
-	/**
-	 * The file extension of the templates.
-	 */
-	defaultExtension: string;
-
-	/**
-	 * The function used to XML-escape interpolations.
-	 */
-	escapeFunction: (value: unknown) => string;
-
-	/**
-	 * The function used to filter the interpolations.
-	 */
-	filterFunction: (value: unknown) => string;
-
-	/**
-	 * The raw JavaScript code to be inserted in the template functions.
-	 */
-	functionHeader: string;
-
-	/**
-	 * The parsing options.
-	 */
-	parse: {
-		exec: string,
-		interpolate: string,
-		raw: string
-	};
-
-	/**
-	 * The renderer plugins.
-	 */
-	plugins: Array<Partial<{
-		processAST: Function,
-		processFnString: Function,
-		processTemplate: Function
-	}>>;
-
-	/**
-	 * Value indicating whether to remove all safe-to-remove whitespace.
-	 */
-	rmWhitespace: boolean;
-
-	/**
-	 * The delimiters.
-	 */
-	tags: [string, string];
-
-	/**
-	 * Value indicating whether to data available on the global object.
-	 */
-	useWith: boolean;
-
-	/**
-	 * The name of the data object.
-	 */
-	varName: string;
-
-	/**
-	 * The path to the directory containing the templates.
-	 */
-	views: string;
 }
 
 /**
@@ -208,11 +115,6 @@ export interface RenderingOptions {
 	 */
 	writeResponse: boolean;
 }
-
-/**
- * Defines the automatic whitespace trimming.
- */
-export type TrimOptions = false|"nl"|"slurp";
 
 /**
  * Declaration merging.
