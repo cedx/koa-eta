@@ -1,7 +1,9 @@
 package js.koa;
 
 import js.html.AbortSignal;
+import js.node.http.IncomingMessage;
 import js.node.http.Server;
+import js.node.http.ServerResponse;
 import js.node.net.Server.ServerListenOptionsTcp;
 
 /** Represents a Koa application. **/
@@ -19,6 +21,9 @@ extern class Application {
 
 	/** Creates a new application. **/
 	function new(?options: ApplicationOptions);
+
+	/** Return a request handler callback for Node.js native HTTP server.  **/
+	function callback(): (IncomingMessage, ServerResponse) -> Void;
 
 	/** Creates and returns an HTTP server, passing the given arguments to `Server.listen()`. **/
 	function listen(options: ListenOptions): Server;

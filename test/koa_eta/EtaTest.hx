@@ -3,6 +3,7 @@ package koa_eta;
 import js.Lib;
 import js.html.AbortController;
 import js.koa.Application;
+import js.node.Http;
 import tink.Url;
 import tink.http.Client;
 import tink.http.Header.HeaderField;
@@ -18,7 +19,7 @@ using StringTools;
 	var controller: AbortController;
 
 	/** The server URL. **/
-	final url: Url = "http://127.0.0.1:3000/";
+	var url: Url = "http://127.0.0.1:3000/";
 
 	/** Creates a new test. **/
 	public function new() {}
@@ -32,8 +33,14 @@ using StringTools;
 	/** Method invoked before each test. **/
 	@:before public function before() {
 		controller = new AbortController();
-		application.listen({host: url.host.name, port: url.host.port, signal: controller.signal});
-		return Noise;
+		return Promise.irreversible((resolve, reject) -> {
+			final server = Http.createServer(application.callback());
+			server.listen({host: "127.0.0.1", port: 0, signal: controller.signal}, () -> {
+				final address = server.address();
+				url = 'http://${address.address}:${address.port}/';
+				resolve(Noise);
+			});
+		});
 	}
 
 	/** Tests the `render()` method. **/
