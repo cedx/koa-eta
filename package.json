@@ -14,11 +14,11 @@
 	},
 	"dependencies": {
 		"eta": "^3.5.0",
-		"playwright": "^1.47.1"
+		"playwright": "^1.48.0"
 	},
 	"devDependencies": {
 		"@types/koa": "^2.15.0",
-		"@types/node": "^22.7.4",
+		"@types/node": "^22.7.5",
 		"esbuild": "^0.24.0"
 	},
 	"engines": {
