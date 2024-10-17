@@ -7,5 +7,5 @@
 	"releasenote": "Ported the source code to Haxe.",
 	"tags": ["eta", "koa", "middleware", "render", "template", "view"],
 	"url": "https://github.com/cedx/koa-eta",
-	"version": "2.0.0"
+	"version": "3.0.0"
 }
