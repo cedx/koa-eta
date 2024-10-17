@@ -1,4 +1,4 @@
-package js.playwright;
+package js.puppeteer;
 
 import haxe.extern.EitherType;
 import js.lib.Promise;
@@ -53,6 +53,9 @@ typedef PdfOptions = {
 		?top: EitherType<Int, String>
 	};
 
+	/** Value indicating wether to hide the default white background and allow generating PDFs with transparency. **/
+	var ?omitBackground: Bool;
+
 	/** Value indicating wether to embed the document outline into the PDF. **/
 	var ?outline: Bool;
 
@@ -73,6 +76,12 @@ typedef PdfOptions = {
 
 	/** Value indicating whether to generate tagged (accessible) PDF. **/
 	var ?tagged: Bool;
+
+	/** The timeout in milliseconds. **/
+	var ?timeout: Int;
+
+	/** Value indicating whether to wait for `document.fonts.ready` to resolve. **/
+	var ?waitForFonts: Bool;
 
 	/** The paper width. **/
 	var ?width: EitherType<Int, String>;
