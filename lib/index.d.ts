@@ -1,93 +1,7 @@
-import {Eta, type EtaConfig} from "eta";
+import type {Eta, EtaConfig} from "eta";
 import type {default as Koa} from "koa";
 import type {Buffer} from "node:buffer";
-import type {LaunchOptions} from "playwright-core";
-
-/**
- * Defines the PDF rendering options.
- */
-export interface PdfOptions {
-
-	/**
-	 * Value indicating whether to display the header and footer.
-	 */
-	displayHeaderFooter: boolean;
-
-	/**
-	 * The HTML template for the print footer.
-	 */
-	footerTemplate: string;
-
-	/**
-	 * The paper format.
-	 */
-	format: string;
-
-	/**
-	 * The HTML template for the print header.
-	 */
-	headerTemplate: string;
-
-	/**
-	 * The paper height.
-	 */
-	height: number|string;
-
-	/**
-	 * Value indicating the landscape orientation.
-	 */
-	landscape: boolean;
-
-	/**
-	 * The paper margins.
-	 */
-	margin: Partial<{
-		bottom: number|string,
-		left: number|string,
-		right: number|string,
-		top: number|string
-	}>;
-
-	/**
-	 * Value indicating wether to embed the document outline into the PDF.
-	 */
-	outline: boolean;
-
-	/**
-	 * The paper ranges to print.
-	 */
-	pageRanges: string;
-
-	/**
-	 * The file path to save the PDF to.
-	 */
-	path: string;
-
-	/**
-	 * Value indicating whether to give prority to any CSS `@page` size declared in the page.
-	 */
-	preferCSSPageSize: boolean;
-
-	/**
-	 * Value indicating whether to print the background graphics.
-	 */
-	printBackground: boolean;
-
-	/**
-	 * The scale of the webpage rendering.
-	 */
-	scale: number;
-
-	/**
-	 * Value indicating whether to generate tagged (accessible) PDF.
-	 */
-	tagged: boolean;
-
-	/**
-	 * The paper width.
-	 */
-	width: number|string;
-}
+import type {PDFOptions, PuppeteerNodeLaunchOptions} from "puppeteer";
 
 /**
  * Defines the renderer options.
@@ -97,7 +11,7 @@ export type RendererOptions = EtaConfig & {
 	/**
 	 * The launch options for the browser used to render PDF documents.
 	 */
-	browser: LaunchOptions;
+	browser: PuppeteerNodeLaunchOptions;
 }
 
 /**
@@ -150,6 +64,6 @@ declare module "koa" {
 		 * @param options The rendering options.
 		 * @returns The rendering result.
 		 */
-		renderPdf(view: string, data?: object, options?: Partial<PdfOptions & RenderingOptions>): Promise<Buffer>;
+		renderPdf(view: string, data?: object, options?: Partial<PDFOptions & RenderingOptions>): Promise<Buffer>;
 	}
 }
