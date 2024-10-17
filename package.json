@@ -14,7 +14,7 @@
 	},
 	"dependencies": {
 		"eta": "^3.5.0",
-		"playwright": "^1.48.1"
+		"puppeteer": "^23.6.0"
 	},
 	"devDependencies": {
 		"@types/koa": "^2.15.0",
