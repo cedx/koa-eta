@@ -4,7 +4,7 @@ package js.puppeteer;
 enum abstract ProtocolType(String) from String to String {
 
 	/** The Chrome DevTools protocol. **/
-	var Cdp = "cdp";
+	var ChromeDevTools = "cdp";
 
 	/** The BiDirectional WebDriver protocol. **/
 	var WebDriverBiDi = "webDriverBiDi";

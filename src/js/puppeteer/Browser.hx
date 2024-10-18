@@ -1,13 +1,14 @@
 package js.puppeteer;
 
 import js.lib.Promise;
+import js.node.events.EventEmitter;
 
 /** Represents a browser instance. **/
-extern interface Browser {
+extern abstract class Browser extends EventEmitter<Browser> {
 
-	/** Closes the browser and all of its pages (if any were opened). **/
-	function close(?options: {?reason: String}): Promise<Void>;
+	/** Closes this browser and all associated pages. **/
+	function close(): Promise<Void>;
 
-	/** Creates a new page in the browser context. **/
+	/** Creates a new page in the default browser context. **/
 	function newPage(): Promise<Page>;
 }
