@@ -1,7 +1,7 @@
 import type {Eta, EtaConfig} from "eta";
 import type {default as Koa} from "koa";
 import type {Buffer} from "node:buffer";
-import type {PDFOptions, PuppeteerNodeLaunchOptions} from "puppeteer";
+import type {PDFOptions, PuppeteerLaunchOptions} from "puppeteer";
 
 /**
  * Defines the renderer options.
@@ -11,7 +11,7 @@ export type RendererOptions = EtaConfig & {
 	/**
 	 * The launch options for the browser used to render PDF documents.
 	 */
-	browser: PuppeteerNodeLaunchOptions;
+	browser: PuppeteerLaunchOptions;
 }
 
 /**
