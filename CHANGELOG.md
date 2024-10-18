@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [3.0.0](https://github.com/cedx/koa-eta/compare/v2.0.0...v3.0.0)
+- Breaking change: replaced [Playwight](https://playwright.dev) by [Puppeteer](https://pptr.dev) for PDF rendering.
+
 ## Version [2.0.0](https://github.com/cedx/koa-eta/compare/v1.1.0...v2.0.0)
 - Breaking change: the `eta()` function now uses a named export instead of a default export.
 - Ported the source code to [Haxe](https://haxe.org).
