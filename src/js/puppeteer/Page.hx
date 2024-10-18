@@ -1,27 +1,19 @@
 package js.puppeteer;
 
 import haxe.extern.EitherType;
+import js.html.AbortSignal;
 import js.lib.Promise;
-import js.node.Buffer;
+import js.lib.Uint8Array;
+import js.node.events.EventEmitter;
 
 /** Provides methods to interact with a single tab in a browser instance. **/
-extern interface Page {
+extern abstract class Page extends EventEmitter<Page> {
 
 	/** Generates a PDF document of the page. **/
-	function pdf(?options: PdfOptions): Promise<Buffer>;
+	function pdf(?options: PdfOptions): Promise<Uint8Array>;
 
-	/** Calls the [`document.write()`](https://developer.mozilla.org/docs/Web/API/Document/write) method. **/
-	function setContent(html: String, ?options: ContentOptions): Promise<Void>;
-}
-
-/** Defines the options of the `Page.setContent()` method. **/
-typedef ContentOptions = {
-
-	/** The maximum operation time in milliseconds. **/
-	var ?timeout: Int;
-
-	/** Value indicating when to consider the operation succeeded. **/
-	var ?waitUntil: WaitUntil;
+	/** Sets the content of the page. **/
+	function setContent(html: String, ?options: WaitForOptions): Promise<Void>;
 }
 
 /** Defines the options of the `Page.pdf()` method. **/
@@ -87,18 +79,15 @@ typedef PdfOptions = {
 	var ?width: EitherType<Int, String>;
 }
 
-/** A value indicating when to consider an operation succeeded. **/
-enum abstract WaitUntil(String) from String to String {
+/** Defines the options of the `Page.setContent()` method. **/
+typedef WaitForOptions = {
 
-	/** Considers the operation to be finished when network response is received and the document started loading. **/
-	var Commit = "commit";
+	/** A signal object that allows you to cancel the call. **/
+	var ?signal: AbortSignal;
 
-	/** Considers the operation to be finished when the `DOMContentLoaded` event is fired. **/
-	var DomContentLoaded = "domcontentloaded";
+	/** The maximum wait time in milliseconds. **/
+	var ?timeout: Int;
 
-	/** Considers the operation to be finished when the `load` event is fired. **/
-	var Load = "load";
-
-	/** Considers the operation to be finished when there are no network connections for at least 500 milliseconds. **/
-	var NetworkIdle = "networkidle";
+	/** Value indicating when to consider the waiting succeeds. **/
+	var ?waitUntil: EitherType<LifeCycleEvent, Array<LifeCycleEvent>>;
 }
