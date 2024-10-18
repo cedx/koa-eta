@@ -1,13 +1,14 @@
 package koa_eta;
 
 import js.Lib;
-import js.eta.Config as EtaConfig;
+import js.eta.Config;
 import js.eta.Eta;
 import js.koa.Application;
 import js.koa.Context;
 import js.lib.Object;
 import js.lib.Promise;
 import js.node.Buffer;
+import js.puppeteer.LifeCycleEvent;
 import js.puppeteer.Page.PdfOptions;
 import js.puppeteer.Puppeteer;
 
@@ -37,11 +38,12 @@ function eta(application: Application, ?rendererOptions: RendererOptions): Eta {
 		final viewData = Object.assign({}, context.state, data ?? {});
 
 		final promise = (renderingOptions?.async ?? false) ? Promise.resolve(renderer.render(view, viewData)) : renderer.renderAsync(view, viewData);
-		return promise.then(html -> Puppeteer.launch(rendererOptions.browser).then(browser -> browser.newPage()
-			.then(page -> page.setContent(html, {waitUntil: Load}).then(_ -> page.pdf(renderingOptions)))
+		return promise.then(html -> Puppeteer.launch(rendererOptions.browser ?? Lib.undefined).then(browser -> browser.newPage()
+			.then(page -> page.setContent(html, {waitUntil: LifeCycleEvent.Load}).then(_ -> page.pdf(renderingOptions)))
 			.then(pdf -> browser.close().then(_ -> {
-				if (renderingOptions?.writeResponse ?? true) { context.body = pdf; context.type = "pdf"; }
-				pdf;
+				final buffer = Buffer.from(pdf);
+				if (renderingOptions?.writeResponse ?? true) { context.body = buffer; context.type = "pdf"; }
+				buffer;
 			}))
 		));
 	}
@@ -55,7 +57,7 @@ function eta(application: Application, ?rendererOptions: RendererOptions): Eta {
 }
 
 /** Defines the renderer options. **/
-typedef RendererOptions = EtaConfig & {
+typedef RendererOptions = Config & {
 
 	/** The launch options for the browser used to render PDF documents. **/
 	var ?browser: LaunchOptions;
