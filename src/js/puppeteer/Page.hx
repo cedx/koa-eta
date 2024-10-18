@@ -26,7 +26,7 @@ typedef PdfOptions = {
 	var ?footerTemplate: String;
 
 	/** The paper format. **/
-	var ?format: String;
+	var ?format: PaperFormat;
 
 	/** The HTML template for the print header. **/
 	var ?headerTemplate: String;
