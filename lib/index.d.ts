@@ -6,7 +6,7 @@ import type {PDFOptions, PuppeteerLaunchOptions} from "puppeteer";
 /**
  * Defines the renderer options.
  */
-export type RendererOptions = EtaConfig & {
+export interface RendererOptions extends EtaConfig {
 
 	/**
 	 * The launch options for the browser used to render PDF documents.
