@@ -24,6 +24,5 @@ jobs:
         run: |
           lix download
           npm ci
-          npx playwright install --with-deps chromium
       - name: Run tests
         run: lix Test
