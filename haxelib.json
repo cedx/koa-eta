@@ -4,7 +4,7 @@
 	"description": "A Koa view renderer based on the Eta template engine.",
 	"license": "MIT",
 	"name": "koa_eta",
-	"releasenote": "Ported the source code to Haxe.",
+	"releasenote": "Replaced Playwight by Puppeteer for PDF rendering.",
 	"tags": ["eta", "koa", "middleware", "render", "template", "view"],
 	"url": "https://github.com/cedx/koa-eta",
 	"version": "3.0.0"
