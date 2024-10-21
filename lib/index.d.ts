@@ -6,18 +6,18 @@ import type {PDFOptions, PuppeteerLaunchOptions} from "puppeteer";
 /**
  * Defines the renderer options.
  */
-export interface RendererOptions extends EtaConfig {
+export type RendererOptions = Partial<EtaConfig & {
 
 	/**
 	 * The launch options for the browser used to render PDF documents.
 	 */
 	browser: PuppeteerLaunchOptions;
-}
+}>;
 
 /**
  * Defines the rendering options.
  */
-export interface RenderingOptions {
+export type RenderingOptions = Partial<{
 
 	/**
 	 * Value indicating whether the template is asynchronous.
@@ -28,7 +28,7 @@ export interface RenderingOptions {
 	 * Value indicating whether to write the rendering result to the response.
 	 */
 	writeResponse: boolean;
-}
+}>;
 
 /**
  * Attaches a view renderer to the context of the specified application.
