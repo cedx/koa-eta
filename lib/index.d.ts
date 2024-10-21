@@ -11,7 +11,7 @@ export type RendererOptions = Partial<EtaConfig & {
 	/**
 	 * The launch options for the browser used to render PDF documents.
 	 */
-	browser: PuppeteerLaunchOptions
+	browser: PuppeteerLaunchOptions;
 }>;
 
 /**
@@ -22,12 +22,12 @@ export type RenderingOptions = Partial<{
 	/**
 	 * Value indicating whether the template is asynchronous.
 	 */
-	async: boolean,
+	async: boolean;
 
 	/**
 	 * Value indicating whether to write the rendering result to the response.
 	 */
-	writeResponse: boolean
+	writeResponse: boolean;
 }>;
 
 /**
