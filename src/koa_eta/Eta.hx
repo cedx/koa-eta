@@ -16,7 +16,7 @@ import js.puppeteer.Puppeteer.LaunchOptions;
 function eta(application: Application, ?rendererOptions: RendererOptions): Eta {
 	final renderer = new Eta(rendererOptions);
 
-	/** Renders the specified `view`. **/
+	// Renders the specified `view`.
 	function render(view: String, ?data: {}, ?renderingOptions: RenderingOptions): Promise<String> {
 		final context: Context = Lib.nativeThis;
 		final viewData = Object.assign({}, context.state, data ?? {});
@@ -28,7 +28,7 @@ function eta(application: Application, ?rendererOptions: RendererOptions): Eta {
 		});
 	}
 
-	/** Renders the specified `view` as a PDF document. **/
+	// Renders the specified `view` as a PDF document.
 	function renderPdf(view: String, ?data: {}, ?renderingOptions: PdfOptions & RenderingOptions): Promise<Buffer> {
 		final context: Context = Lib.nativeThis;
 		final viewData = Object.assign({}, context.state, data ?? {});
@@ -40,6 +40,7 @@ function eta(application: Application, ?rendererOptions: RendererOptions): Eta {
 		});
 	}
 
+	// Attach the render function to the application context.
 	Object.defineProperties(application.context, {
 		render: {value: render},
 		renderPdf: {value: renderPdf}
