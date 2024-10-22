@@ -1,5 +1,6 @@
 package koa_eta;
 
+import haxe.io.Mime;
 import js.Lib;
 import js.html.AbortController;
 import js.koa.Application;
@@ -49,9 +50,9 @@ using StringTools;
 		asserts.assert(Reflect.isFunction(untyped application.context.render));
 
 		// It should render a view as HTML page.
-		Client.fetch(url, {headers: [new HeaderField(ACCEPT, "text/html")]}).all().next(response -> {
+		Client.fetch(url, {headers: [new HeaderField(ACCEPT, Mime.TextHtml)]}).all().next(response -> {
 			asserts.assert(response.header.statusCode == OK);
-			asserts.assert(response.header.contentType().satisfies(contentType -> contentType.fullType == "text/html"));
+			asserts.assert(response.header.contentType().satisfies(contentType -> contentType.fullType == Mime.TextHtml));
 
 			final body = response.body.toString();
 			asserts.assert(body.startsWith("<!DOCTYPE html>"));
@@ -69,9 +70,9 @@ using StringTools;
 		asserts.assert(Reflect.isFunction(untyped application.context.renderPdf));
 
 		// It should render a view as PDF document.
-		Client.fetch(url, {headers: [new HeaderField(ACCEPT, "application/pdf")]}).all().next(response -> {
+		Client.fetch(url, {headers: [new HeaderField(ACCEPT, Mime.ApplicationPdf)]}).all().next(response -> {
 			asserts.assert(response.header.statusCode == OK);
-			asserts.assert(response.header.contentType().satisfies(contentType -> contentType.fullType == "application/pdf"));
+			asserts.assert(response.header.contentType().satisfies(contentType -> contentType.fullType == Mime.ApplicationPdf));
 
 			final body = response.body.toString();
 			asserts.assert(body.startsWith("%PDF-"));
