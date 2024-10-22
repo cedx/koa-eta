@@ -40,7 +40,7 @@ function eta(application: Application, ?rendererOptions: RendererOptions): Eta {
 		});
 	}
 
-	// Attach the render function to the application context.
+	// Attach the rendering functions to the application context.
 	Object.defineProperties(application.context, {
 		render: {value: render},
 		renderPdf: {value: renderPdf}
