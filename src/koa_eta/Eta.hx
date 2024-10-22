@@ -8,9 +8,8 @@ import js.koa.Context;
 import js.lib.Object;
 import js.lib.Promise;
 import js.node.Buffer;
-import js.puppeteer.LifeCycleEvent;
 import js.puppeteer.Page.PdfOptions;
-import js.puppeteer.Puppeteer;
+import js.puppeteer.Puppeteer.LaunchOptions;
 
 /** Attaches a view renderer to the context of the specified `application`. **/
 @:expose("eta")
@@ -35,7 +34,7 @@ function eta(application: Application, ?rendererOptions: RendererOptions): Eta {
 		final viewData = Object.assign({}, context.state, data ?? {});
 
 		final promise = (renderingOptions?.async ?? false) ? Promise.resolve(renderer.render(view, viewData)) : renderer.renderAsync(view, viewData);
-		return promise.then(html -> htmlToPdf(html, {browser: rendererOptions?.browser, pdf: renderingOptions})).then(pdf -> {
+		return promise.then(html -> Puppeteer.htmlToPdf(html, {browser: rendererOptions?.browser, pdf: renderingOptions})).then(pdf -> {
 			if (renderingOptions?.writeResponse ?? true) { context.body = pdf; context.type = "pdf"; }
 			pdf;
 		});
@@ -48,12 +47,6 @@ function eta(application: Application, ?rendererOptions: RendererOptions): Eta {
 
 	return renderer;
 }
-
-/** Converts the specified HTML code into a PDF document. **/
-private function htmlToPdf(html: String, ?options: {?browser: LaunchOptions, ?pdf: PdfOptions}): Promise<Buffer>
-	return Puppeteer.launch(options?.browser ?? Lib.undefined).then(browser -> browser.newPage()
-		.then(page -> page.setContent(html, {waitUntil: LifeCycleEvent.Load}).then(_ -> page.pdf(options?.pdf ?? Lib.undefined)))
-		.then(pdf -> browser.close().then(_ -> Buffer.from(pdf))));
 
 /** Defines the renderer options. **/
 typedef RendererOptions = Config & {
