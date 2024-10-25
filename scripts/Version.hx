@@ -1,5 +1,5 @@
 //! --class-path src
-import koa_eta.Platform;
+import koa.eta.Platform;
 import sys.io.File;
 
 /** Updates the version number in the sources. **/

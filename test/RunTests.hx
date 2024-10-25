@@ -7,6 +7,6 @@ import tink.unit.TestBatch;
 function main() {
 	ANSI.stripIfUnavailable = false;
 	Runner
-		.run(TestBatch.make([new koa_eta.EtaTest()]), new BasicReporter(new AnsiFormatter()))
+		.run(TestBatch.make([new koa.eta.EtaTest()]), new BasicReporter(new AnsiFormatter()))
 		.handle(Runner.exit);
 }

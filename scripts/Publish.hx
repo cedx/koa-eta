@@ -1,5 +1,5 @@
 //! --class-path src
-import koa_eta.Platform;
+import koa.eta.Platform;
 
 /** Publishes the package. **/
 function main() {

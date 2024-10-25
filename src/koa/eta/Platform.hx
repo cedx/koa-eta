@@ -1,4 +1,4 @@
-package koa_eta;
+package koa.eta;
 
 #if macro
 import haxe.Json;

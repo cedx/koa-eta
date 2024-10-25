@@ -1,4 +1,4 @@
-package koa_eta;
+package koa.eta;
 
 import haxe.io.Mime;
 import js.Lib;

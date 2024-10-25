@@ -1,4 +1,4 @@
-package koa_eta;
+package koa.eta;
 
 import js.Lib;
 import js.eta.Config;
