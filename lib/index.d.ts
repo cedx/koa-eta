@@ -36,7 +36,7 @@ export type RenderingOptions = Partial<{
  * @param rendererOptions The view renderer options.
  * @returns The newly created view renderer.
  */
-export function eta(application: Koa, rendererOptions?: Partial<RendererOptions>): Eta;
+export function eta(application: Koa, rendererOptions?: RendererOptions): Eta;
 
 /**
  * Declaration merging.
@@ -55,7 +55,7 @@ declare module "koa" {
 		 * @param options The rendering options.
 		 * @returns The rendering result.
 		 */
-		render(view: string, data?: object, options?: Partial<RenderingOptions>): Promise<string>;
+		render(view: string, data?: object, options?: RenderingOptions): Promise<string>;
 
 		/**
 		 * Renders the specified view as a PDF document.
@@ -64,6 +64,6 @@ declare module "koa" {
 		 * @param options The rendering options.
 		 * @returns The rendering result.
 		 */
-		renderPdf(view: string, data?: object, options?: Partial<PDFOptions & RenderingOptions>): Promise<Buffer>;
+		renderPdf(view: string, data?: object, options?: PDFOptions & RenderingOptions): Promise<Buffer>;
 	}
 }
