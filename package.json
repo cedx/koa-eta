@@ -19,7 +19,7 @@
 	"devDependencies": {
 		"@types/koa": "^2.15.0",
 		"@types/node": "^22.8.1",
-		"esbuild": "^0.24.0"
+		"terser": "^5.36.0"
 	},
 	"engines": {
 		"node": ">=22.0.0"
