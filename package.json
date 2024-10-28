@@ -14,11 +14,11 @@
 	},
 	"dependencies": {
 		"eta": "^3.5.0",
-		"puppeteer": "^23.6.0"
+		"puppeteer": "^23.6.1"
 	},
 	"devDependencies": {
 		"@types/koa": "^2.15.0",
-		"@types/node": "^22.8.1",
+		"@types/node": "^22.8.2",
 		"terser": "^5.36.0"
 	},
 	"engines": {
