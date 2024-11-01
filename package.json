@@ -5,8 +5,8 @@
 	"license": "MIT",
 	"name": "@cedx/koa-eta",
 	"repository": "cedx/koa-eta",
-	"type": "commonjs",
-	"version": "3.0.0",
+	"type": "module",
+	"version": "4.0.0",
 	"author": {
 		"email": "cedric@belin.io",
 		"name": "Cédric Belin",
@@ -17,20 +17,19 @@
 		"puppeteer": "^23.6.1"
 	},
 	"devDependencies": {
-		"@types/koa": "^2.15.0",
-		"@types/node": "^22.8.2",
-		"terser": "^5.36.0"
+		"@coffeelint/cli": "^5.2.11",
+		"coffeescript": "^2.7.0"
 	},
 	"engines": {
 		"node": ">=22.0.0"
 	},
 	"exports": {
 		"types": "./lib/index.d.ts",
-		"import": "./lib/index.mjs",
-		"default": "./lib/index.cjs"
+		"default": "./lib/index.js"
 	},
 	"files": [
-		"lib/"
+		"lib/",
+		"src/"
 	],
 	"keywords": [
 		"eta",
@@ -45,6 +44,6 @@
 	},
 	"scripts": {
 		"start": "node example/server.mjs",
-		"test": "lix Test"
+		"test": "cake test"
 	}
 }
