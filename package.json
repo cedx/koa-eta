@@ -43,7 +43,7 @@
 		"koa": ">=2.15.0"
 	},
 	"scripts": {
-		"start": "node example/server.mjs",
+		"start": "node example/server.js",
 		"test": "cake test"
 	}
 }
