@@ -23,7 +23,7 @@ export eta = (application, rendererOptions = {}) ->
 	renderPdf = (view, data = {}, renderingOptions = {}) -> # coffeelint: disable-line = missing_fat_arrows
 		viewData = {@state..., data...}
 		html = await if renderingOptions.async then Promise.resolve renderer.render view, viewData else renderer.renderAsync view, viewData
-		pdf = await htmlToPdf(html, {browser: rendererOptions.browser, pdf: renderingOptions})
+		pdf = await htmlToPdf html, browser: rendererOptions.browser, pdf: renderingOptions
 		if renderingOptions.writeResponse ? yes
 			@body = pdf
 			@type = "pdf"
