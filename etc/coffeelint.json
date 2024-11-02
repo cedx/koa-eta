@@ -101,7 +101,7 @@
   },
   "no_implicit_braces": {
     "type": "style",
-    "level": "error",
+    "level": "ignore",
     "strict": false
   },
   "no_implicit_parens": {
