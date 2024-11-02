@@ -1,4 +1,5 @@
 import {equal, ok} from "node:assert/strict";
+import {createServer} from "node:http";
 import {after, before, describe, it} from "node:test";
 import app from "../example/server.js";
 import pkg from "../package.json" with {type: "json"};
@@ -7,10 +8,17 @@ import pkg from "../package.json" with {type: "json"};
  * Tests the features of the {@link render} and {@link renderPdf} functions.
  */
 describe("eta()", () => {
-	const url = new URL("http://127.0.0.1:3000/");
+	let url = new URL("http://127.0.0.1:3000/");
+
 	const controller = new AbortController;
-	before(() => app.listen({host: url.hostname, port: Number(url.port), signal: controller.signal}));
 	after(() => controller.abort());
+
+	const server = createServer(app.callback());
+	before((_, done) => server.listen({host: "127.0.0.1", port: 0, signal: controller.signal}, () => {
+		const {address, port} = server.address();
+		url = new URL(`http://${address}:${port}/`);
+		done();
+	}));
 
 	describe("render()", () => {
 		it("should have been added to the application context", () =>
@@ -22,7 +30,6 @@ describe("eta()", () => {
 			equal(response.status, 200);
 
 			const body = await response.text();
-			console.log("body", body);
 			ok(body.startsWith("<!DOCTYPE html>"));
 			ok(body.includes("<title>Eta for Koa</title>"));
 			ok(body.includes(`<b>${pkg.version}</b>`));
