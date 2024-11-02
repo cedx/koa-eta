@@ -27,7 +27,7 @@ task "publish", "Publishes the package.", ->
 	run "git", action..., "v#{pkg.version}" for action in [["tag"], ["push", "origin"]]
 
 task "test", "Runs the test suite.", ->
-	env.NODE_TEST = "test"
+	env.NODE_ENV = "test"
 	invoke "build"
 	run "node", "--enable-source-maps", "--test", "--test-reporter=spec"
 
