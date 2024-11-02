@@ -12,7 +12,7 @@ task "build", "Builds the project.", (options) ->
 
 task "clean", "Deletes all generated files.", ->
 	rmSync join("lib", file) for file in readdirSync "lib" when not file.endsWith ".d.ts"
-	rmSync join("var", file), {recursive: true} for file in readdirSync "var" when file isnt ".gitkeep"
+	rmSync join("var", file), recursive: true for file in readdirSync "var" when file isnt ".gitkeep"
 
 task "dist", "Packages the project.", ->
 	invoke "clean"
@@ -49,7 +49,7 @@ npx = (command, args...) -> run "npm", "exec", "--", command, args...
 # @returns {Promise<void>} Resolves when the command is terminated.
 ###
 run = (command, args...) ->
-	{status} = spawnSync command, args, {shell: true, stdio: "inherit"}
+	{status} = spawnSync command, args, shell: true, stdio: "inherit"
 	if status isnt 0
 		console.error "Command failed:", command, args...
 		process.exit status
