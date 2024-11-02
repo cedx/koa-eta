@@ -8,8 +8,8 @@ app = new Koa
 
 # Configure the view renderer.
 eta app,
-	cache: app.env is "production",
-	debug: app.env isnt "production",
+	cache: app.env is "production"
+	debug: app.env isnt "production"
 	views: join import.meta.dirname, "../res"
 
 # Configure the data shared by all views.
