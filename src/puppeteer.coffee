@@ -4,7 +4,7 @@ import puppeteer from "puppeteer"
 ###*
 # Converts the specified HTML code into a PDF document.
 # @param {string} html TODO
-# @param {{browser?: import("puppeteer").PuppeteerLaunchOptions, pdf?: import("puppeteer").PDFOptions}} options
+# @param {Partial<{browser: import("puppeteer").PuppeteerLaunchOptions, pdf: import("puppeteer").PDFOptions}>} options
 # @returns {Promise<Buffer>} TODO
 ###
 export htmlToPdf = (html, options = {}) ->

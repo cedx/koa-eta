@@ -4,7 +4,7 @@ import {after, before, describe, it} from "node:test"
 import app from "../example/server.js"
 
 ###*
-# Tests the features of the {@link render} and {@link renderPdf} functions.
+# Tests the features of the `render()` and `renderPdf()` functions.
 ###
 describe "eta()", ->
 	controller = new AbortController
