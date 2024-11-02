@@ -1,3 +1,4 @@
+import {Eta} from "eta"
 import {htmlToPdf} from "./puppeteer.js"
 
 ###*
@@ -11,7 +12,7 @@ export eta = (application, rendererOptions = {}) ->
 
 	# Renders the specified view.
 	render = (view, data = {}, renderingOptions = {}) ->
-		viewData = Object.assign {}, @state, data
+		viewData = {@state..., data...}
 		html = await if renderingOptions.async then Promise.resolve renderer.render view, viewData else renderer.renderAsync view, viewData
 		if renderingOptions.writeResponse
 			@body = html
@@ -20,7 +21,7 @@ export eta = (application, rendererOptions = {}) ->
 
 	# Renders the specified view as a PDF document.
 	renderPdf = (view, data = {}, renderingOptions = {}) ->
-		viewData = Object.assign {}, @state, data
+		viewData = {@state..., data...}
 		html = await if renderingOptions.async then Promise.resolve renderer.render view, viewData else renderer.renderAsync view, viewData
 		pdf = await htmlToPdf(html, {browser: rendererOptions.browser, pdf: renderingOptions})
 		if renderingOptions.writeResponse

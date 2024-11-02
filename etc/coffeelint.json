@@ -165,7 +165,7 @@
   },
   "non_empty_constructor_needs_parens": {
     "type": "style",
-    "level": "error"
+    "level": "ignore"
   },
   "object_shorthand": {
     "type": "style",
