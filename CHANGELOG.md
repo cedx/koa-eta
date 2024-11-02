@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [4.0.0](https://github.com/cedx/koa-eta/compare/v3.0.0...v4.0.0)
+- Ported the source code to [CoffeeScript](https://coffeescript.org).
+
 ## Version [3.0.0](https://github.com/cedx/koa-eta/compare/v2.0.0...v3.0.0)
 - Breaking change: replaced [Playwight](https://playwright.dev) by [Puppeteer](https://pptr.dev) for PDF rendering.
 
