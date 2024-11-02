@@ -28,11 +28,12 @@ task "publish", "Publishes the package.", ->
 
 task "test", "Runs the test suite.", ->
 	env.NODE_ENV = "test"
-	invoke "build"
-	run "node", "--enable-source-maps", "--test", "--test-reporter=spec"
+	run "coffee", "--compile", "--map", "--no-header", "--output", "lib", "src", "test"
+	run "node", "--enable-source-maps", "--test", "--test-reporter=spec", "lib/**/*_test.js"
 
 task "watch", "Watches for file changes.", ->
-	run "coffee", "--compile", "--map", "--no-header", "--output", "lib", "--watch", "src"
+	sourcemaps = if options.map then ["--map"] else []
+	run "coffee", "--compile", sourcemaps..., "--no-header", "--output", "lib", "--watch", "src"
 
 ###*
 # Executes a command from a local package.
