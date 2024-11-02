@@ -19,7 +19,7 @@ task "dist", "Packages the project.", ->
 	invoke "build"
 
 task "lint", "Performs the static analysis of source code.", ->
-	npx "coffeelint", "--file=etc/coffeelint.json", "Cakefile", "src"
+	npx "coffeelint", "--file=etc/coffeelint.json", "Cakefile", "src", "test"
 
 task "publish", "Publishes the package.", ->
 	invoke "dist"
