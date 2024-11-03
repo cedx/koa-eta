@@ -1,12 +1,7 @@
 import {Eta} from "eta"
 import {htmlToPdf} from "./puppeteer.js"
 
-###*
 # Attaches a view renderer to the context of the specified application.
-# @param {import("koa")} application The application instance.
-# @param {Partial<import("eta").EtaConfig & {browser: import("puppeteer").PuppeteerLaunchOptions}>} rendererOptions The view renderer options.
-# @returns {import("eta").Eta} The newly created view renderer.
-###
 export eta = (application, rendererOptions = {}) ->
 	renderer = new Eta rendererOptions
 
