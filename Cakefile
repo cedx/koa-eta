@@ -31,7 +31,7 @@ task "test", "Runs the test suite.", ->
 	run "coffee", "--compile", "--map", "--no-header", "--output", "lib", "src", "test"
 	run "node", "--enable-source-maps", "--test", "--test-reporter=spec", "lib/**/*_test.js"
 
-task "watch", "Watches for file changes.", ->
+task "watch", "Watches for file changes.", (options) ->
 	sourcemaps = if options.map then ["--map"] else []
 	run "coffee", "--compile", sourcemaps..., "--no-header", "--output", "lib", "--watch", "src"
 
