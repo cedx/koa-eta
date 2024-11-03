@@ -1,18 +1,7 @@
-import type {Eta, EtaConfig} from "eta";
-import type {default as Koa} from "koa";
-import type {Buffer} from "node:buffer";
-import type {PDFOptions, PuppeteerLaunchOptions} from "puppeteer";
-
-/**
- * Defines the renderer options.
- */
-export type RendererOptions = Partial<EtaConfig & {
-
-	/**
-	 * The launch options for the browser used to render PDF documents.
-	 */
-	browser: PuppeteerLaunchOptions;
-}>;
+import {Buffer} from "node:buffer";
+import {PDFOptions} from "puppeteer";
+export * from "./eta.js";
+export * from "./puppeteer.js";
 
 /**
  * Defines the rendering options.
@@ -29,14 +18,6 @@ export type RenderingOptions = Partial<{
 	 */
 	writeResponse: boolean;
 }>;
-
-/**
- * Attaches a view renderer to the context of the specified application.
- * @param application The application instance.
- * @param rendererOptions The view renderer options.
- * @returns The newly created view renderer.
- */
-export function eta(application: Koa, rendererOptions?: RendererOptions): Eta;
 
 /**
  * Declaration merging.
