@@ -3,9 +3,7 @@ import {createServer} from "node:http"
 import {after, before, describe, it} from "node:test"
 import app from "../example/server.js"
 
-###*
 # Tests the features of the `render()` and `renderPdf()` functions.
-###
 describe "eta()", ->
 	controller = new AbortController
 	after -> controller.abort()
