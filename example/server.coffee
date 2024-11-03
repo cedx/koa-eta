@@ -24,5 +24,5 @@ app.use (ctx) ->
 	if ctx.accepts "pdf" then ctx.renderPdf "main", {items} else ctx.render "main", {items}
 
 # Start the application.
-unless app.env is "test" then app.listen 3000, "127.0.0.1", -> console.log "Server listening on http://127.0.0.1:3000..."
+app.listen(3000, "127.0.0.1", -> console.log "Server listening on http://127.0.0.1:3000...") unless app.env is "test"
 export default app;
