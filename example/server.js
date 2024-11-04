@@ -28,6 +28,6 @@ app.use(ctx => {
 
 // Start the application.
 if (app.env != "test")
-	app.listen(3000, "127.0.0.1", () => console.log("Server listening on http://127.0.0.1:3000..."));
+	app.listen({host: "127.0.0.1", port: 3000}, () => console.log("Server listening on http://127.0.0.1:3000..."));
 
 export default app;
