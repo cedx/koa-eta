@@ -25,4 +25,4 @@ app.use (ctx) ->
 
 # Start the application.
 app.listen(3000, "127.0.0.1", -> console.log "Server listening on http://127.0.0.1:3000...") unless app.env is "test"
-export default app;
+export default app
