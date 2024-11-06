@@ -1,23 +1,8 @@
 import {Buffer} from "node:buffer";
 import {PDFOptions} from "puppeteer";
+
 export * from "./eta.js";
 export * from "./puppeteer.js";
-
-/**
- * Defines the rendering options.
- */
-export type RenderingOptions = Partial<{
-
-	/**
-	 * Value indicating whether the template is asynchronous.
-	 */
-	async: boolean;
-
-	/**
-	 * Value indicating whether to write the rendering result to the response.
-	 */
-	writeResponse: boolean;
-}>;
 
 /**
  * Declaration merging.
@@ -48,3 +33,19 @@ declare module "koa" {
 		renderPdf(view: string, data?: object, options?: PDFOptions & RenderingOptions): Promise<Buffer>;
 	}
 }
+
+/**
+ * Defines the rendering options.
+ */
+export type RenderingOptions = Partial<{
+
+	/**
+	 * Value indicating whether the template is asynchronous.
+	 */
+	async: boolean;
+
+	/**
+	 * Value indicating whether to write the rendering result to the response.
+	 */
+	writeResponse: boolean;
+}>;

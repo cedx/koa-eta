@@ -3,6 +3,14 @@ import {default as Koa} from "koa";
 import {PuppeteerLaunchOptions} from "puppeteer";
 
 /**
+ * Attaches a view renderer to the context of the specified application.
+ * @param application The application instance.
+ * @param options The renderer options.
+ * @returns The newly created view renderer.
+ */
+export function eta(application: Koa, options?: RendererOptions): Eta;
+
+/**
  * Defines the renderer options.
  */
 export type RendererOptions = Partial<EtaConfig & {
@@ -12,11 +20,3 @@ export type RendererOptions = Partial<EtaConfig & {
 	 */
 	browser: PuppeteerLaunchOptions;
 }>;
-
-/**
- * Attaches a view renderer to the context of the specified application.
- * @param application The application instance.
- * @param options The renderer options.
- * @returns The newly created view renderer.
- */
-export function eta(application: Koa, options?: RendererOptions): Eta;
