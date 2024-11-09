@@ -6,7 +6,7 @@ export eta = (application, rendererOptions = {}) ->
 	renderer = new Eta rendererOptions
 
 	# Renders the specified view.
-	render = (view, locals = {}, renderingOptions = {}) ->
+	_render = (view, locals = {}, renderingOptions = {}) ->
 		data = {@state..., locals...}
 		html = await if renderingOptions.async then renderer.renderAsync view, data else Promise.resolve renderer.render view, data
 		if renderingOptions.writeResponse ? yes
@@ -15,7 +15,7 @@ export eta = (application, rendererOptions = {}) ->
 		html
 
 	# Renders the specified view as a PDF document.
-	renderPdf = (view, locals = {}, renderingOptions = {}) ->
+	_renderPdf = (view, locals = {}, renderingOptions = {}) ->
 		data = {@state..., locals...}
 		html = await if renderingOptions.async then renderer.renderAsync view, data else Promise.resolve renderer.render view, data
 		pdf = await htmlToPdf html, browser: rendererOptions.browser, pdf: renderingOptions
@@ -25,5 +25,5 @@ export eta = (application, rendererOptions = {}) ->
 		pdf
 
 	# Attach the rendering functions to the application context.
-	Object.defineProperties application.context, render: {value: render}, renderPdf: {value: renderPdf}
+	Object.defineProperties application.context, render: {value: _render}, renderPdf: {value: _renderPdf}
 	renderer
