@@ -9,11 +9,11 @@ describe "eta()", ->
 	after -> controller.abort()
 
 	server = createServer app.callback()
-	url = new URL "http://127.0.0.1:3000/"
-	before (_, done) -> server.listen host: url.hostname, port: 0, signal: controller.signal, ->
+	url = new URL "http://127.0.0.1:0/"
+	before -> new Promise (resolve) -> server.listen host: url.hostname, port: Number(url.port), signal: controller.signal, ->
 		{address, port} = server.address()
 		url = new URL "http://#{address}:#{port}/"
-		done()
+		resolve()
 
 	describe "render()", ->
 		it "should have been added to the application context", ->
