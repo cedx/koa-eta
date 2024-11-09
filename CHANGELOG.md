@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [4.0.1](https://github.com/cedx/koa-eta/compare/v4.0.0...v4.0.1)
+- Fixed the rendering of asynchronous templates.
+
 ## Version [4.0.0](https://github.com/cedx/koa-eta/compare/v3.0.0...v4.0.0)
 - Ported the source code to [CoffeeScript](https://coffeescript.org).
 
