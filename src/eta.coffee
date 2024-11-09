@@ -8,7 +8,7 @@ export eta = (application, rendererOptions = {}) ->
 	# Renders the specified view.
 	render = (view, locals = {}, renderingOptions = {}) ->
 		data = {@state..., locals...}
-		html = await if renderingOptions.async then Promise.resolve renderer.render view, data else renderer.renderAsync view, data
+		html = await if renderingOptions.async then renderer.renderAsync view, data else Promise.resolve renderer.render view, data
 		if renderingOptions.writeResponse ? yes
 			@body = html
 			@type = "html"
@@ -17,7 +17,7 @@ export eta = (application, rendererOptions = {}) ->
 	# Renders the specified view as a PDF document.
 	renderPdf = (view, locals = {}, renderingOptions = {}) ->
 		data = {@state..., locals...}
-		html = await if renderingOptions.async then Promise.resolve renderer.render view, data else renderer.renderAsync view, data
+		html = await if renderingOptions.async then renderer.renderAsync view, data else Promise.resolve renderer.render view, data
 		pdf = await htmlToPdf html, browser: rendererOptions.browser, pdf: renderingOptions
 		if renderingOptions.writeResponse ? yes
 			@body = pdf
