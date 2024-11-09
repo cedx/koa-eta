@@ -6,18 +6,18 @@ export eta = (application, rendererOptions = {}) ->
 	renderer = new Eta rendererOptions
 
 	# Renders the specified view.
-	render = (view, data = {}, renderingOptions = {}) ->
-		viewData = {@state..., data...}
-		html = await if renderingOptions.async then Promise.resolve renderer.render view, viewData else renderer.renderAsync view, viewData
+	render = (view, locals = {}, renderingOptions = {}) ->
+		data = {@state..., locals...}
+		html = await if renderingOptions.async then Promise.resolve renderer.render view, data else renderer.renderAsync view, data
 		if renderingOptions.writeResponse ? yes
 			@body = html
 			@type = "html"
 		html
 
 	# Renders the specified view as a PDF document.
-	renderPdf = (view, data = {}, renderingOptions = {}) ->
-		viewData = {@state..., data...}
-		html = await if renderingOptions.async then Promise.resolve renderer.render view, viewData else renderer.renderAsync view, viewData
+	renderPdf = (view, locals = {}, renderingOptions = {}) ->
+		data = {@state..., locals...}
+		html = await if renderingOptions.async then Promise.resolve renderer.render view, data else renderer.renderAsync view, data
 		pdf = await htmlToPdf html, browser: rendererOptions.browser, pdf: renderingOptions
 		if renderingOptions.writeResponse ? yes
 			@body = pdf
