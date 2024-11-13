@@ -14,8 +14,8 @@ eta app,
 
 # Configure the data shared by all views.
 app.use (ctx, next) ->
-	pkg = await import("../package.json", with: {type: "json"})
-	Object.assign ctx.state, version: pkg.default.version
+	{default: {version}} = await import("../package.json", with: {type: "json"})
+	Object.assign ctx.state, {version}
 	next()
 
 # Render the view as HTML or PDF depending on content negotiation.

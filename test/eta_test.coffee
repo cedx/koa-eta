@@ -25,10 +25,10 @@ describe "eta()", ->
 			equal response.status, 200
 
 			body = await response.text()
-			pkg = await import("../package.json", with: {type: "json"})
+			{default: {version}} = await import("../package.json", with: {type: "json"})
 			ok body.startsWith "<!DOCTYPE html>"
 			ok body.includes "<title>Eta for Koa</title>"
-			ok body.includes "<b>#{pkg.default.version}</b>"
+			ok body.includes "<b>#{version}</b>"
 			ok body.trimEnd().endsWith "</html>"
 
 	describe "renderPdf()", ->
