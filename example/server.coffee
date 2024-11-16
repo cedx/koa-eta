@@ -14,7 +14,7 @@ eta app,
 
 # Configure the data shared by all views.
 app.use (ctx, next) ->
-	{default: {version}} = await import("../package.json", with: {type: "json"})
+	{default: {version}} = await import("../package.json", with: type: "json")
 	Object.assign ctx.state, {version}
 	next()
 
