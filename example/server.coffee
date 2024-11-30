@@ -21,7 +21,7 @@ app.use (ctx, next) ->
 # Render the view as HTML or PDF depending on content negotiation.
 app.use (ctx) ->
 	items = [{name: "Arthion Xyrlynn"}, {name: "Elen Naenan"}, {name: "Paeris Xilmenor"}]
-	if ctx.accepts "pdf" then ctx.renderPdf "main", {items} else ctx.render "main", {items}
+	if ctx.accepts "pdf" then await ctx.renderPdf "main", {items} else await ctx.render "main", {items}
 
 # Start the application.
 app.listen(host: "127.0.0.1", port: 3000, -> console.log "Server listening on http://127.0.0.1:3000...") unless app.env is "test"
