@@ -2,7 +2,7 @@
 {readdirSync, rmSync} = require "node:fs"
 {join} = require "node:path"
 {env} = require "node:process"
-pkg = require "../package.json"
+pkg = require "./package.json"
 
 task "build", "Builds the project.", ->
 	npx "coffee", "--compile", "--no-header", "--output", "lib", "src"
