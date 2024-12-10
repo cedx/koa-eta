@@ -14,7 +14,7 @@
 	},
 	"dependencies": {
 		"eta": "^3.5.0",
-		"puppeteer": "^23.10.1"
+		"puppeteer": "^23.10.2"
 	},
 	"devDependencies": {
 		"@coffeelint/cli": "^5.2.11",
