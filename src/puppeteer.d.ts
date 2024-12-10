@@ -1,5 +1,5 @@
 import {Buffer} from "node:buffer";
-import {PDFOptions, PuppeteerLaunchOptions} from "puppeteer";
+import {LaunchOptions, PDFOptions} from "puppeteer";
 
 /**
  * Converts the specified HTML code into a PDF document.
@@ -7,4 +7,4 @@ import {PDFOptions, PuppeteerLaunchOptions} from "puppeteer";
  * @param options The rendering options.
  * @returns The PDF document corresponding to the specified HTML code.
  */
-export function htmlToPdf(html: string, options?: {browser?: PuppeteerLaunchOptions, pdf?: PDFOptions}): Promise<Buffer>;
+export function htmlToPdf(html: string, options?: {browser?: LaunchOptions, pdf?: PDFOptions}): Promise<Buffer>;

@@ -1,6 +1,6 @@
 import {Eta, EtaConfig} from "eta";
 import {default as Koa} from "koa";
-import {PuppeteerLaunchOptions} from "puppeteer";
+import {LaunchOptions} from "puppeteer";
 
 /**
  * Attaches a view renderer to the context of the specified application.
@@ -18,5 +18,5 @@ export type RendererOptions = Partial<EtaConfig & {
 	/**
 	 * The launch options for the browser used to render PDF documents.
 	 */
-	browser: PuppeteerLaunchOptions;
+	browser: LaunchOptions;
 }>;
