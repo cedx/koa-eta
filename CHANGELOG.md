@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [4.1.0](https://github.com/cedx/koa-eta/compare/v4.0.1...v4.1.0)
+- Updated the package dependencies.
+
 ## Version [4.0.1](https://github.com/cedx/koa-eta/compare/v4.0.0...v4.0.1)
 - Fixed the rendering of asynchronous templates.
 
