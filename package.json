@@ -51,7 +51,6 @@
 		"access": "public"
 	},
 	"scripts": {
-		"start": "node example/server.js",
 		"test": "gulp test"
 	}
 }
