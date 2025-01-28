@@ -17,11 +17,10 @@
 		"puppeteer": "^24.1.1"
 	},
 	"devDependencies": {
-		"@coffeelint/cli": "^5.2.11",
+		"@types/eslint__js": "^8.42.3",
 		"@types/gulp": "^4.0.17",
 		"@types/koa": "^2.15.0",
-		"@types/node": "^22.10.10",
-		"coffeescript": "^2.7.0",
+		"@types/node": "^22.12.0",
 		"gulp": "^5.0.0"
 	},
 	"engines": {
