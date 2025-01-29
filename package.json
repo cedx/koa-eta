@@ -6,7 +6,7 @@
 	"name": "@cedx/koa-eta",
 	"repository": "cedx/koa-eta",
 	"type": "module",
-	"version": "4.2.0",
+	"version": "5.0.0",
 	"author": {
 		"email": "cedric@belin.io",
 		"name": "Cédric Belin",
@@ -14,7 +14,7 @@
 	},
 	"dependencies": {
 		"eta": "^3.5.0",
-		"puppeteer": "^24.1.1"
+		"playwright": "^1.50.0"
 	},
 	"devDependencies": {
 		"@types/eslint__js": "^8.42.3",
