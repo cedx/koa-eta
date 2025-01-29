@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [5.0.0](https://github.com/cedx/koa-eta/compare/v4.1.0...v5.0.0)
+- Breaking change: replaced [Puppeteer](https://pptr.dev) by [Playwight](https://playwright.dev) for PDF rendering.
+- Ported the source code to [TypeScript](https://www.typescriptlang.org).
+
 ## Version [4.1.0](https://github.com/cedx/koa-eta/compare/v4.0.1...v4.1.0)
 - Updated the package dependencies.
 
