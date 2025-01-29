@@ -1,7 +1,7 @@
-import {Eta} from "eta";
-import type {default as Koa, Context} from "koa";
-import type {PdfOptions, RendererOptions, RenderingOptions} from "./options.js";
-import {htmlToPdf} from "./playwright.js";
+import {Eta, type EtaConfig} from "eta";
+import type {Context, default as Koa} from "koa";
+import type {LaunchOptions} from "playwright-core";
+import {htmlToPdf, type PdfOptions} from "./playwright.js";
 
 /**
  * Attaches a view renderer to the context of the specified application.
@@ -58,3 +58,30 @@ export function eta(application: Koa, rendererOptions: RendererOptions = {}): Et
 
 	return renderer;
 }
+
+/**
+ * Defines the renderer options.
+ */
+export type RendererOptions = Partial<EtaConfig & {
+
+	/**
+	 * The launch options for the browser used to render PDF documents.
+	 */
+	browser: LaunchOptions;
+}>;
+
+/**
+ * Defines the rendering options.
+ */
+export type RenderingOptions = Partial<{
+
+	/**
+	 * Value indicating whether the template is asynchronous.
+	 */
+	async: boolean;
+
+	/**
+	 * Value indicating whether to write the rendering result to the response.
+	 */
+	writeResponse: boolean;
+}>;

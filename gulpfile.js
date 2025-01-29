@@ -1,6 +1,7 @@
 import gulp from "gulp";
 import {spawn} from "node:child_process";
-import {readdir, rm} from "node:fs/promises";
+import {cp, readdir, readFile, rm, writeFile} from "node:fs/promises";
+import {EOL} from "node:os";
 import {join} from "node:path";
 import {env} from "node:process";
 import pkg from "./package.json" with {type: "json"};
@@ -8,6 +9,9 @@ import pkg from "./package.json" with {type: "json"};
 /** Builds the project. */
 export async function build() {
 	await npx("tsc", "--build", "src/tsconfig.json");
+	await cp("src/types.d.ts", "lib/types.d.ts");
+	const types = await readFile("lib/index.d.ts", "utf8");
+	await writeFile("lib/index.d.ts", types.replace("//# sourceMappingURL", `import "./types.js";${EOL}//# sourceMappingURL`));
 }
 
 /** Deletes all generated files. */
