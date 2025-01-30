@@ -5,6 +5,7 @@ A [Koa](https://koajs.com) view renderer based on the [Eta](https://eta.js.org) 
 
 ## Documentation
 - [User guide](https://github.com/cedx/koa-eta/wiki)
+- [API reference](https://cedx.github.io/koa-eta)
 - [Examples](https://github.com/cedx/koa-eta/tree/main/example)
 
 ## Development
