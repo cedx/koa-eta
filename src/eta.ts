@@ -51,6 +51,7 @@ export function eta(application: Koa, rendererOptions: RendererOptions = {}): Et
 		return pdf;
 	}
 
+	// Attach the rendering functions to the application context.
 	Object.defineProperties(application.context, {
 		render: {value: render},
 		renderPdf: {value: renderPdf}
