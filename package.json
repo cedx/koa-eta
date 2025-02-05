@@ -17,7 +17,6 @@
 		"playwright": "^1.50.1"
 	},
 	"devDependencies": {
-		"@types/eslint__js": "^8.42.3",
 		"@types/gulp": "^4.0.17",
 		"@types/koa": "^2.15.0",
 		"@types/node": "^22.13.1",
