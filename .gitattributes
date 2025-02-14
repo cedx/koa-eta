@@ -3,6 +3,7 @@
 
 *.cjs text
 *.css text diff=css
+*.esproj text
 *.eta text
 *.html text diff=html
 *.http text
