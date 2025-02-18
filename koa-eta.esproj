@@ -2,14 +2,13 @@
 	<PropertyGroup>
 		<BuildCommand>gulp build</BuildCommand>
 		<CleanCommand>gulp clean</CleanCommand>
-		<OutDir>../var</OutDir>
 	</PropertyGroup>
 
 	<ItemGroup>
+		<None Remove="koa-eta.slnx" />
 		<None Remove="docs\**" />
 		<None Remove="lib\**" />
 		<None Remove="var\**" />
-		<None Remove="koa-eta.slnx" />
 		<TypeScriptConfiguration Remove="docs\**" />
 		<TypeScriptConfiguration Remove="lib\**" />
 		<TypeScriptConfiguration Remove="var\**" />
