@@ -1,6 +1,0 @@
-<Solution>
-	<Project Path="koa-eta.esproj">
-		<Build />
-		<Deploy />
-	</Project>
-</Solution>
