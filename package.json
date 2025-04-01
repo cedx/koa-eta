@@ -19,12 +19,12 @@
 	"devDependencies": {
 		"@types/gulp": "^4.0.17",
 		"@types/koa": "^2.15.0",
-		"@types/node": "^22.13.14",
+		"@types/node": "^22.13.17",
 		"globals": "^16.0.0",
 		"gulp": "^5.0.0",
 		"typedoc": "^0.28.1",
 		"typescript": "^5.8.2",
-		"typescript-eslint": "^8.28.0"
+		"typescript-eslint": "^8.29.0"
 	},
 	"engines": {
 		"node": ">=22.0.0"
