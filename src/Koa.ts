@@ -1,5 +1,5 @@
-import type {RenderingOptions} from "./eta.ts";
-import type {PdfOptions} from "./playwright.ts";
+import type {RenderingOptions} from "./Eta.ts";
+import type {PdfOptions} from "./Playwright.ts";
 
 /**
  * Declaration merging.

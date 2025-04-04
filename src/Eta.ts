@@ -1,7 +1,7 @@
 import {Eta, type EtaConfig} from "eta";
 import type {Context, default as Koa} from "koa";
 import type {LaunchOptions} from "playwright-core";
-import {htmlToPdf, type PdfOptions} from "./playwright.js";
+import {htmlToPdf, type PdfOptions} from "./Playwright.js";
 
 /**
  * Attaches a view renderer to the context of the specified application.
