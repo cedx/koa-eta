@@ -23,8 +23,8 @@ app.use((ctx, next) => {
 // Render the view as HTML or PDF depending on content negotiation.
 app.use(async ctx => {
 	const items = [{name: "Arthion Xyrlynn"}, {name: "Elen Naenan"}, {name: "Paeris Xilmenor"}];
-	if (ctx.accepts("pdf")) await ctx.renderPdf("main", {items});
-	else await ctx.render("main", {items});
+	if (ctx.accepts("pdf")) await ctx.renderPdf("Main", {items});
+	else await ctx.render("Main", {items});
 });
 
 // Start the application.
