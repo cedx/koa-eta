@@ -1,0 +1,6 @@
+<% layout("Layout") %>
+
+<main>
+	<p>Package version: <b><%= it.version %></b></p>
+	<%~ include("List", {items: it.items}) %>
+</main>
