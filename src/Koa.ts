@@ -9,7 +9,7 @@ declare module "koa" {
 	/**
 	 * The request context.
 	 */
-	interface ExtendableContext { // eslint-disable-line @typescript-eslint/consistent-type-definitions
+	interface ExtendableContext {
 
 		/**
 		 * Renders the specified view.
