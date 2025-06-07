@@ -19,7 +19,7 @@
 	"devDependencies": {
 		"@types/gulp": "^4.0.17",
 		"@types/koa": "^2.15.0",
-		"@types/node": "^22.15.29",
+		"@types/node": "^22.15.30",
 		"globals": "^16.2.0",
 		"gulp": "^5.0.1",
 		"typedoc": "^0.28.5",
