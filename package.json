@@ -14,12 +14,12 @@
 	},
 	"dependencies": {
 		"eta": "^3.5.0",
-		"playwright": "^1.53.2"
+		"playwright": "^1.54.0"
 	},
 	"devDependencies": {
 		"@types/gulp": "^4.0.17",
 		"@types/koa": "^2.15.0",
-		"@types/node": "^24.0.12",
+		"@types/node": "^24.0.13",
 		"globals": "^16.3.0",
 		"gulp": "^5.0.1",
 		"typedoc": "^0.28.7",
