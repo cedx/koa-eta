@@ -1,4 +1,5 @@
 {
+	"author": "Cédric Belin <cedx@outlook.com>",
 	"bugs": "https://github.com/cedx/koa-eta/issues",
 	"description": "A Koa view renderer based on the Eta template engine.",
 	"homepage": "https://github.com/cedx/koa-eta",
@@ -7,11 +8,6 @@
 	"repository": "cedx/koa-eta",
 	"type": "module",
 	"version": "5.0.0",
-	"author": {
-		"email": "cedx@outlook.com",
-		"name": "Cédric Belin",
-		"url": "https://belin.io"
-	},
 	"dependencies": {
 		"eta": "^3.5.0",
 		"playwright": "^1.54.1"
