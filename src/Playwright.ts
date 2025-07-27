@@ -1,4 +1,4 @@
-import {Buffer} from "node:buffer";
+import type {Buffer} from "node:buffer";
 import {chromium} from "playwright";
 import type {LaunchOptions, Page} from "playwright-core";
 
@@ -9,12 +9,10 @@ import type {LaunchOptions, Page} from "playwright-core";
  * @returns The PDF document corresponding to the specified HTML code.
  */
 export async function htmlToPdf(html: string, options: {browser?: LaunchOptions, pdf?: PdfOptions} = {}): Promise<Buffer> {
-	const browser = await chromium.launch(options.browser);
+	await using browser = await chromium.launch(options.browser);
 	const page = await browser.newPage();
 	await page.setContent(html, {waitUntil: "load"});
-	const pdf = await page.pdf(options.pdf);
-	await browser.close();
-	return Buffer.from(pdf);
+	return await page.pdf(options.pdf);
 }
 
 /**
