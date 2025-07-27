@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [6.0.0](https://github.com/cedx/koa-eta/compare/v5.0.0...v6.0.0)
+- Breaking change: raised the required [Koa](https://koajs.com) version.
+- The [Chromium](https://www.chromium.org/Home) browser is now automatically installed.
+
 ## Version [5.0.0](https://github.com/cedx/koa-eta/compare/v4.1.0...v5.0.0)
 - Breaking change: replaced [Puppeteer](https://pptr.dev) by [Playwight](https://playwright.dev) for PDF rendering.
 - Ported the source code to [TypeScript](https://www.typescriptlang.org).
