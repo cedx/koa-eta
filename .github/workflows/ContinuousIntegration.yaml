@@ -16,5 +16,3 @@ jobs:
         run: npm ci
       - name: Run tests
         run: aa-exec --profile=chrome -- npx gulp test
-        env:
-          NODE_ENV: test
