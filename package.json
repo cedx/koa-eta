@@ -9,9 +9,9 @@
 	"type": "module",
 	"version": "6.0.0",
 	"dependencies": {
-		"@playwright/browser-chromium": "^1.54.2",
+		"@playwright/browser-chromium": "^1.55.0",
 		"eta": "^3.5.0",
-		"playwright": "^1.54.2"
+		"playwright": "^1.55.0"
 	},
 	"devDependencies": {
 		"@types/gulp": "^4.0.17",
