@@ -7,16 +7,16 @@
 	"name": "@cedx/koa-eta",
 	"repository": "cedx/koa-eta",
 	"type": "module",
-	"version": "6.0.0",
+	"version": "6.1.0",
 	"dependencies": {
 		"@playwright/browser-chromium": "^1.55.0",
-		"eta": "^3.5.0",
+		"eta": "^4.0.1",
 		"playwright": "^1.55.0"
 	},
 	"devDependencies": {
 		"@types/gulp": "^4.0.17",
 		"@types/koa": "^3.0.0",
-		"@types/node": "^24.5.1",
+		"@types/node": "^24.5.2",
 		"globals": "^16.4.0",
 		"gulp": "^5.0.1",
 		"typedoc": "^0.28.13",
