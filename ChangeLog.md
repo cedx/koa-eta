@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [6.1.0](https://github.com/cedx/koa-eta/compare/v6.0.0...v6.1.0)
+- Updated the package dependencies.
+
 ## Version [6.0.0](https://github.com/cedx/koa-eta/compare/v5.0.0...v6.0.0)
 - Breaking change: raised the required [Koa](https://koajs.com) version.
 - The [Chromium](https://www.chromium.org/Home) browser is now automatically installed.
