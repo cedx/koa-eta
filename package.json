@@ -14,11 +14,9 @@
 		"playwright": "^1.55.1"
 	},
 	"devDependencies": {
-		"@types/gulp": "^4.0.17",
 		"@types/koa": "^3.0.0",
 		"@types/node": "^24.6.2",
 		"globals": "^16.4.0",
-		"gulp": "^5.0.1",
 		"typedoc": "^0.28.13",
 		"typescript": "^5.9.3",
 		"typescript-eslint": "^8.45.0"
