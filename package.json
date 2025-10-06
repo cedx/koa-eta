@@ -9,9 +9,9 @@
 	"type": "module",
 	"version": "6.1.0",
 	"dependencies": {
-		"@playwright/browser-chromium": "^1.55.1",
+		"@playwright/browser-chromium": "^1.56.0",
 		"eta": "^4.0.1",
-		"playwright": "^1.55.1"
+		"playwright": "^1.56.0"
 	},
 	"devDependencies": {
 		"@types/koa": "^3.0.0",
