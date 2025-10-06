@@ -1,5 +1,5 @@
 Write-Host "Running the test suite..."
-$nodeEnvironment = $Env:NODE_ENV
+$environment = $Env:NODE_ENV
 npx tsc --build src/tsconfig.json --sourceMap
 
 try {
@@ -7,5 +7,5 @@ try {
 	node --enable-source-maps --test
 }
 finally {
-	$Env:NODE_ENV = $nodeEnvironment
+	$Env:NODE_ENV = $environment
 }
