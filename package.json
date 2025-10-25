@@ -14,7 +14,7 @@
 		"playwright": "^1.56.1"
 	},
 	"devDependencies": {
-		"@types/koa": "^3.0.0",
+		"@types/koa": "^3.0.1",
 		"@types/node": "^24.9.1",
 		"globals": "^16.4.0",
 		"typedoc": "^0.28.14",
