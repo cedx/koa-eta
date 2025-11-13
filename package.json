@@ -10,7 +10,7 @@
 	"version": "6.1.0",
 	"dependencies": {
 		"@playwright/browser-chromium": "^1.56.1",
-		"eta": "^4.0.1",
+		"eta": "^4.4.1",
 		"playwright": "^1.56.1"
 	},
 	"devDependencies": {
