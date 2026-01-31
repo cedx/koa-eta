@@ -10,7 +10,7 @@
 	"version": "6.1.0",
 	"dependencies": {
 		"eta": "^4.5.0",
-		"playwright": "^1.58.0",
+		"playwright": "^1.58.1",
 		"playwright-chromium": "^1.58.1"
 	},
 	"devDependencies": {
