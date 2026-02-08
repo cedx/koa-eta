@@ -10,12 +10,12 @@
 	"version": "6.1.0",
 	"dependencies": {
 		"eta": "^4.5.0",
-		"playwright": "^1.58.1",
-		"playwright-chromium": "^1.58.1"
+		"playwright": "^1.58.2",
+		"playwright-chromium": "^1.58.2"
 	},
 	"devDependencies": {
 		"@types/koa": "^3.0.1",
-		"@types/node": "^25.2.1",
+		"@types/node": "^25.2.2",
 		"globals": "^17.3.0",
 		"typedoc": "^0.28.16",
 		"typescript": "^5.9.3",
