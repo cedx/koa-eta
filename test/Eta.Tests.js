@@ -30,7 +30,7 @@ describe("eta()", () => {
 			equal(response.status, 200);
 
 			const body = await response.text();
-			ok(body.startsWith("<!DOCTYPE html>"));
+			ok(body.startsWith("<!doctype html>"));
 			ok(body.includes("<title>Eta for Koa</title>"));
 			ok(body.includes(`<b>${pkg.version}</b>`));
 			ok(body.trimEnd().endsWith("</html>"))
