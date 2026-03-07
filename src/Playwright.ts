@@ -10,7 +10,7 @@ import type {LaunchOptions, Page} from "playwright-core";
  */
 export async function htmlToPdf(html: string, options: {browser?: LaunchOptions, pdf?: PdfOptions} = {}): Promise<Buffer> {
 	await using browser = await chromium.launch(options.browser);
-	const page = await browser.newPage();
+	await using page = await browser.newPage();
 	await page.setContent(html, {waitUntil: "load"});
 	return await page.pdf(options.pdf);
 }
