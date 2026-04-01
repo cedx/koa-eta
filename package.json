@@ -10,8 +10,8 @@
 	"version": "6.1.0",
 	"dependencies": {
 		"eta": "^4.5.0",
-		"playwright": "^1.59.0",
-		"playwright-chromium": "^1.59.0"
+		"playwright": "^1.59.1",
+		"playwright-chromium": "^1.59.1"
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0.1",
