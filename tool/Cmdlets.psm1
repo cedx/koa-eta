@@ -38,7 +38,7 @@ function Invoke-ESLint {
 .SYNOPSIS
 	Invokes the Node.js test runner.
 #>
-function Invoke-NodeTesting {
+function Invoke-NodeTest {
 	Start-Process node -ArgumentList "--enable-source-maps", "--test" -Environment @{ NODE_ENV = "test" } -NoNewWindow -Wait
 }
 
