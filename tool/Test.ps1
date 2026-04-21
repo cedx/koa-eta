@@ -1,3 +1,5 @@
+using module ./Cmdlets.psm1
+
 "Running the test suite..."
-npx tsc --build src/tsconfig.json --sourceMap
-Start-Process node -ArgumentList "--enable-source-maps", "--test" -Environment @{ NODE_ENV = "test" } -NoNewWindow -Wait
+Invoke-TypeScript "$PSScriptRoot/../src/tsconfig.json" -SourceMap
+Invoke-NodeTesting
